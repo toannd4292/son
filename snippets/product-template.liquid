@@ -82,6 +82,7 @@
               product_zoom_size: product_zoom_size,
               product_image_size: product_image_size,
               thumbnail_arrows: thumbnail_arrows,
+              thumbnail_height: thumbnail_height,
               thumbnail_position: thumbnail_position,
               video_looping: video_looping,
               video_style: video_style
@@ -182,7 +183,7 @@
                         <span data-product-price-wrap class="{% if hide_sale_price %} hide{% endif %}">
                           <span data-compare-price class="product__price product__price--compare">
                             {%- if current_variant.compare_at_price > current_variant.price -%}
-                              {%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: current_variant.compare_at_price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ current_variant.compare_at_price | money | prepend: geolizr_prepend_code | append: "</span>"}}
+                              {{ current_variant.compare_at_price | money }}
                             {%- endif -%}
                           </span>
                         </span>
@@ -194,15 +195,15 @@
                       <span data-product-price
                         class="product__price{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}">
                         {%- unless product.empty? -%}
-                          {%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: current_variant.price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ current_variant.price | money | prepend: geolizr_prepend_code | append: "</span>"}}
+                          {{ current_variant.price | money }}
                         {%- else -%}
-                          {%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: 1999 -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ 1999 | money | prepend: geolizr_prepend_code | append: "</span>"}}
+                          {{ 1999 | money }}
                         {%- endunless -%}
                       </span>
 
                       {%- if settings.product_save_amount -%}
                         {%- if settings.product_save_type == 'dollar' -%}
-                          {%- capture saved_amount -%}{%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: current_variant.compare_at_price | minus: current_variant.price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ current_variant.compare_at_price | minus: current_variant.price | money | prepend: geolizr_prepend_code | append: "</span>"}}{%- endcapture -%}
+                          {%- capture saved_amount -%}{{ current_variant.compare_at_price | minus: current_variant.price | money }}{%- endcapture -%}
                         {%- else -%}
                           {%- capture saved_amount -%}{{ current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | round }}%{%- endcapture -%}
                         {%- endif -%}
@@ -227,17 +228,7 @@
                           </span>
                         {%- endcapture -%}
 
-                        <span data-unit-price>{%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: current_variant.unit_price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ current_variant.unit_price | money | prepend: geolizr_prepend_code | append: "</span>"}}</span>/{{ unit_price_base_unit }}
-                      </div>
-                      
-                      <div id="splitit-container"
-                       data-splitit="true"
-                       data-splitit-amount="{{ current_variant.price | divided_by: 100.0 | json }}"
-                       data-splitit-num-installments="3"
-                       data-splitit-style-font-family="Lora"
-                       data-splitit-font-size="10"
-                       data-splitit-logo-height="15"
-                       data-splitit-type="product-description">
+                        <span data-unit-price>{{ current_variant.unit_price | money }}</span>/{{ unit_price_base_unit }}
                       </div>
 
                       {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -280,7 +271,7 @@
                       </div>
                     {% endif %}
                   {%- when 'variant_picker' -%}
-                    <div class="product-block" {{ block.shopify_attributes }}>
+                    <div class="product-block" {% if block.settings.product_dynamic_variants_enable %}data-dynamic-variants-enabled{% endif %} {{ block.shopify_attributes }}>
                       {%- unless product.has_only_default_variant -%}
                         {%- for option in product.options_with_values -%}
                           {%- liquid
@@ -324,18 +315,7 @@
                           {%- endif -%}
                         {%- endfor -%}
                       {%- endunless -%}
-
-                      {% for variant in product.variants %}
-                        {% if variant.metafields.size.measurement != blank %}
-                            <div class="variant-size--measurement measurement-{{ variant.id }}"{% if current_variant.id != variant.id %} style="display:none"{% endif %}>
-                              <img src="{{ 'icon-check.png' | asset_url }}">
-                              <span>{{ variant.metafields.size.measurement }}</span>
-                            </div>
-                        {% endif %}
-                      {% endfor %}
-                  
                     </div>
-                
                   {%- when 'buy_buttons' -%}
                     <div class="product-block" {{ block.shopify_attributes }}>
                       {%- unless product.empty? -%}
@@ -418,6 +398,17 @@
                 </div>
               {%- endfor -%}
             </div>
+
+            {%- unless product.empty? -%}
+              <textarea class="hide" aria-hidden="true" aria-label="Product JSON" data-variant-json>
+                {{ product.variants | json }}
+              </textarea>
+              {%- if product.options.size > 1 -%}
+                <textarea class="hide" aria-hidden="true" aria-label="Variant JSON" data-current-variant-json>
+                  {{ current_variant | json }}
+                </textarea>
+              {%- endif -%}
+            {%- endunless -%}
           </div>
         </div>
 

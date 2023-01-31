@@ -160,39 +160,55 @@
               <div class="hero__image-wrapper{% unless hero_text %} hero__image-wrapper--no-overlay{% endunless %}">
 
                 {%- if section.settings.parallax -%}
-                  <div class="parallax-container">
-                    <div class="parallax-image">
+                  <parallax-image class="parallax-container">
+                    <div class="parallax-image" data-movement="15%" data-parallax-image data-angle="{{ block.settings.parallax_direction }}">
                 {%- endif -%}
 
                   {%- if block.settings.image != blank -%}
-                    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                    <img class="hero__image hero__image--{{ block.id }} lazyload{% if has_mobile_image %} small--hide{% endif %}"
-                      src="{{ block.settings.image | img_url: '300x' }}"
-                      data-src="{{ img_url }}"
-                      data-aspectratio="{{ block.settings.image.aspect_ratio }}"
-                      data-sizes="auto"
-                      alt="{{ block.settings.image.alt | escape }}"
-                      style="object-position: {{ block.settings.focal_point }}">
+                    {% style %}
+                      .hero__image--{{ block.id }}{
+                        object-position: {{ block.settings.focal_point }};
+                      }
+                    {% endstyle %}
+
+                    {% if has_mobile_image %}
+                      {% assign desktop_classes = 'small--hide lazyload hero__image hero__image--' | append: block.id %}
+                    {% else %}
+                      {% assign desktop_classes = 'hero__image lazyload hero__image--' | append: block.id %}
+                    {% endif %}
+
+                    {% render 'image-element'
+                      img: block.settings.image,
+                      img_width: 2400,
+                      classes: desktop_classes,
+                      alt: block.settings.image.alt,
+                      sizes: '100%'
+                    %}
+
+
                     {%- if has_mobile_image -%}
-                      {%- assign img_url_mobile = block.settings.image_mobile | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                      <img class="hero__image hero__image--{{ block.id }} lazyload medium-up--hide"
-                        src="{{ block.settings.image_mobile | img_url: '300x' }}"
-                        data-src="{{ img_url_mobile }}"
-                        data-aspectratio="{{ block.settings.image_mobile.aspect_ratio }}"
-                        data-sizes="auto"
-                        alt="{{ block.settings.image_mobile.alt | escape }}"
-                        style="object-position: {{ block.settings.focal_point }}">
+                      {% assign mobile_classes = 'medium-up--hide lazyload hero__image hero__image--' | append: block.id %}
+
+                      {% render 'image-element'
+                        img: block.settings.image_mobile,
+                        img_height: 1200,
+                        classes: mobile_classes,
+                        alt: block.settings.image_mobile.alt,
+                        sizes: '100%'
+                      %}
                     {%- endif -%}
-                    <noscript>
-                      <img class="hero__image hero__image--{{ block.id }}"
-                        src="{{ block.settings.image | img_url: '1400x' }}"
-                        alt="{{ block.settings.image.alt | escape }}">
-                    </noscript>
+
                   {%- else -%}
                     {%- if template == 'password' -%}
                       {%- assign password_image = 'password-page-background.jpg' | asset_url -%}
-                      <img class="hero__image lazyload" src="{{ password_image }}">
+
+                      {% render 'image-element'
+                        img: password_image,
+                        img_height: 2400,
+                        classes: 'hero__image',
+                        sizes: '100%'
+                      %}
                     {%- else -%}
                       {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
                     {%- endif -%}
@@ -200,7 +216,7 @@
 
                 {%- if section.settings.parallax -%}
                     </div>
-                  </div>
+                  </parallax-image>
                 {%- endif -%}
               </div>
 
@@ -211,7 +227,7 @@
               {%- if hero_text -%}
                 <div class="hero__text-wrap">
                   <div class="page-width">
-                    <div class="hero__text-content {{ block.settings.text_align }} {{ block.settings.text_align_mobile }}">
+                    <div class="hero__text-content {{ block.settings.text_align }}">
                       <div class="hero__text-shadow">
                         {%- unless block.settings.top_subheading == blank -%}
                           <div class="hero__top-subtitle">
@@ -477,38 +493,6 @@
           ]
         },
         {
-          "type": "select",
-          "id": "text_align_mobile",
-          "label": "Text alignment for mobile",
-          "default": "mobile-vertical-center mobile-horizontal-center",
-          "options": [
-            {
-              "value": "mobile-vertical-center mobile-horizontal-left",
-              "label": "t:sections.slideshow.blocks.slide.settings.text_align.options.vertical-center_horizontal-left.label"
-            },
-            {
-              "value": "mobile-vertical-center mobile-horizontal-center",
-              "label": "t:sections.slideshow.blocks.slide.settings.text_align.options.vertical-center_horizontal-center.label"
-            },
-            {
-              "value": "mobile-vertical-center mobile-horizontal-right",
-              "label": "t:sections.slideshow.blocks.slide.settings.text_align.options.vertical-center_horizontal-right.label"
-            },
-            {
-              "value": "mobile-vertical-bottom mobile-horizontal-left",
-              "label": "t:sections.slideshow.blocks.slide.settings.text_align.options.vertical-bottom_horizontal-left.label"
-            },
-            {
-              "value": "mobile-vertical-bottom mobile-horizontal-center",
-              "label": "t:sections.slideshow.blocks.slide.settings.text_align.options.vertical-bottom_horizontal-center.label"
-            },
-            {
-              "value": "mobile-vertical-bottom mobile-horizontal-right",
-              "label": "t:sections.slideshow.blocks.slide.settings.text_align.options.vertical-bottom_horizontal-right.label"
-            }
-          ]
-        },
-        {
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.slideshow.blocks.slide.settings.image.label"
@@ -517,6 +501,23 @@
           "type": "image_picker",
           "id": "image_mobile",
           "label": "t:sections.slideshow.blocks.slide.settings.image_mobile.label"
+        },
+        {
+          "type": "select",
+          "id": "parallax_direction",
+          "label": "t:sections.background-image-text.settings.parallax_direction.label",
+          "info": "Only applied when parallax is enabled in this section.",
+          "default" : "top",
+          "options": [
+            {
+              "value": "top",
+              "label": "t:sections.background-image-text.settings.parallax_direction.options.top.label"
+            },
+            {
+              "value": "left",
+              "label": "t:sections.background-image-text.settings.parallax_direction.options.left.label"
+            }
+          ]
         },
         {
           "type": "range",

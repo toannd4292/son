@@ -185,6 +185,17 @@
         "framed": {
           "label": "Add frame"
         },
+        "parallax_direction": {
+          "label": "Parallax direction",
+          "options": {
+            "top": {
+              "label": "Vertical"
+            },
+            "left": {
+              "label": "Horizontal"
+            }
+          }
+        },
         "parallax": {
           "label": "Enable parallax"
         }
@@ -354,6 +365,17 @@
         },
         "collection_image_enable": {
           "label": "Show collection image"
+        },
+        "parallax_direction": {
+          "label": "Parallax direction",
+          "options": {
+            "top": {
+              "label": "Vertical"
+            },
+            "left": {
+              "label": "Horizontal"
+            }
+          }
         },
         "parallax": {
           "label": "Parallax image"
@@ -1028,6 +1050,73 @@
         }
       }
     },
+    "image-comparison": {
+      "name": "Image comparison",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "heading_size": {
+          "label": "Heading size",
+          "options": {
+            "large": {
+              "label": "Large"
+            },
+            "medium": {
+              "label": "Medium"
+            },
+            "small": {
+              "label": "Small"
+            }
+          }
+        },
+        "heading_position": {
+          "label": "Heading position",
+          "options": {
+            "left": {
+              "label": "Left"
+            },
+            "center": {
+              "label": "Center"
+            },
+            "right": {
+              "label": "Right"
+            }
+          }
+        },
+        "fullwidth": {
+          "label": "Full page width"
+        },
+        "slider_style": {
+          "label": "Slider style",
+          "options": {
+            "classic": {
+              "label": "Classic"
+            },
+            "minimal": {
+              "label": "Minimal"
+            }
+          }
+        },
+        "height": {
+          "label": "Height"
+        },
+        "header_colors": "Colors",
+        "color": {
+          "label": "Button"
+        }
+      },
+      "blocks": {
+        "image": {
+          "name": "Image",
+          "settings": {
+            "image": {
+              "label": "Image"
+            }
+          }
+        }
+      }
+    },
     "list-collections-template": {
       "name": "Collections list page",
       "settings": {
@@ -1080,6 +1169,122 @@
           "settings": {
             "collection": {
               "label": "Collection"
+            }
+          }
+        }
+      }
+    },
+    "hotspots": {
+      "name": "Image hotspots",
+      "settings": {
+        "title": {
+          "label": "Heading"
+        },
+        "heading_size": {
+          "label": "Heading size",
+          "options": {
+            "large": {
+              "label": "Large"
+            },
+            "medium": {
+              "label": "Medium"
+            },
+            "small": {
+              "label": "Small"
+            }
+          }
+        },
+        "heading_position": {
+          "label": "Heading position",
+          "options": {
+            "left": {
+              "label": "Left"
+            },
+            "center": {
+              "label": "Center"
+            },
+            "right": {
+              "label": "Right"
+            }
+          }
+        },
+        "image": {
+          "label": "Image",
+          "info": "Recommended a square ratio for optimal mobile experience"
+        },
+        "indent_image": {
+          "label": "Full page width"
+        },
+        "image_position": {
+          "label": "Image position",
+          "options": {
+            "left": {
+              "label": "Left"
+            },
+            "right": {
+              "label": "Right"
+            }
+          }
+        },
+        "hotspot_style": {
+          "label": "Hot spot icon style",
+          "options": {
+            "dot": {
+              "label": "Dot"
+            },
+            "plus": {
+              "label": "Plus"
+            },
+            "bag": {
+              "label": "Bag"
+            },
+            "tag": {
+              "label": "Tag"
+            }
+          }
+        },
+        "hotspot_color": {
+          "label": "Hotspot color"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Product hotspot",
+          "settings": {
+            "featured_product": {
+              "label": "Product"
+            },
+            "vertical": {
+              "label": "Vertical position"
+            },
+            "horizontal": {
+              "label": "Horizontal position"
+            }
+          }
+        },
+        "paragraph": {
+          "name": "Paragraph hotspot",
+          "settings": {
+            "subheading": {
+              "label": "Subheading"
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "content": {
+              "label": "Text"
+            },
+            "button_text": {
+              "label": "Button text"
+            },
+            "button_link": {
+              "label": "Button link"
+            },
+            "vertical": {
+              "label": "Vertical position"
+            },
+            "horizontal": {
+              "label": "Horizontal position"
             }
           }
         }
@@ -1236,6 +1441,18 @@
             },
             "below": {
               "label": "Below media"
+            }
+          }
+        },
+        "thumbnail_height": {
+          "label": "Thumbnail height",
+          "info": "Only applies when Thumbnail position is set to 'Next to media'.",
+          "options": {
+            "fixed": {
+              "label": "Fixed"
+            },
+            "flexible": {
+              "label": "Flexible"
             }
           }
         },
@@ -2009,6 +2226,17 @@
             }
           }
         },
+        "parallax_direction": {
+          "label": "Parallax direction",
+          "options": {
+            "top": {
+              "label": "Vertical"
+            },
+            "left": {
+              "label": "Horizontal"
+            }
+          }
+        },
         "parallax": {
           "label": "Enable parallax"
         },
@@ -2355,6 +2583,360 @@
       "presets": {
         "text_columns_with_images": {
           "name": "Text columns with images"
+        }
+      }
+    },
+    "age-verification-popup": {
+      "name": "Age Verification Popup",
+      "settings": {
+        "enable_age_verification_popup": {
+          "label": "Show age verification pop up"
+        },
+        "enable_test_mode": {
+          "label": "Enable test mode",
+          "info": "Forces the age verification to show on every refresh, and should only be used for editing the popup. Ensure 'Test mode' is disabled when launching your store."
+        },
+        "header_background_image": "Background image",
+        "image": {
+          "label": "Image",
+          "info": "2000 x 800px recommended"
+        },
+        "blur_image": {
+          "label": "Blur the image"
+        },
+        "header_age_verification_question": "Age Verification question",
+        "heading": {
+          "label": "Heading"
+        },
+        "text": {
+          "label": "Age Verification question"
+        },
+        "decline_button_label": {
+          "label": "Decline button text"
+        },
+        "approve_button_label": {
+          "label": "Approve button text"
+        },
+        "header_declined": "Declined",
+        "content": "This content will display if the user does not meet the age verification requirements.",
+        "decline_heading": {
+          "label": "Heading"
+        },
+        "decline_text": {
+          "label": "Text"
+        },
+        "return_button_label": {
+          "label": "Return button text"
+        }
+      }
+    },
+    "countdown": {
+      "name": "Countdown",
+      "settings": {
+        "layout": {
+          "label": "Section layout",
+          "options": {
+            "banner": {
+              "label": "Banner"
+            },
+            "hero": {
+              "label": "Hero"
+            }
+          }
+        },
+        "full_width": {
+          "label": "Enable full width"
+        },
+        "header_colors": "Colors",
+        "text_color": {
+          "label": "Text"
+        },
+        "background_color": {
+          "label": "Background color",
+          "info": "Used when no background image is selected."
+        },
+        "header_background_image": "Background image",
+        "background_image": {
+          "label": "Background image"
+        },
+        "overlay_color": {
+          "label": "Overlay"
+        },
+        "overlay_opacity": {
+          "label": "Overlay opacity"
+        },
+        "mobile_image": {
+          "label": "Mobile image"
+        },
+        "focal_point": {
+          "label": "Focal point",
+          "options": {
+            "20_0": {
+              "label": "Top left"
+            },
+            "top": {
+              "label": "Top"
+            },
+            "80_0": {
+              "label": "Top right"
+            },
+            "20_50": {
+              "label": "Left"
+            },
+            "center": {
+              "label": "Center"
+            },
+            "80_50": {
+              "label": "Right"
+            },
+            "20_100": {
+              "label": "Bottom left"
+            },
+            "bottom": {
+              "label": "Bottom"
+            },
+            "80_100": {
+              "label": "Bottom right"
+            }
+          }
+        },
+        "mobile_image_focal_point": {
+          "label": "Mobile image focal point",
+          "options": {
+            "20_0": {
+              "label": "Top left"
+            },
+            "top": {
+              "label": "Top"
+            },
+            "80_0": {
+              "label": "Top right"
+            },
+            "20_50": {
+              "label": "Left"
+            },
+            "center": {
+              "label": "Center"
+            },
+            "80_50": {
+              "label": "Right"
+            },
+            "20_100": {
+              "label": "Bottom left"
+            },
+            "bottom": {
+              "label": "Bottom"
+            },
+            "80_100": {
+              "label": "Bottom right"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "timer": {
+          "name": "Timer",
+          "settings": {
+            "year": {
+              "label": "Year"
+            },
+            "month": {
+              "label": "Month",
+              "options": {
+                "01": {
+                  "label": "January"
+                },
+                "02": {
+                  "label": "February"
+                },
+                "03": {
+                  "label": "March"
+                },
+                "04": {
+                  "label": "April"
+                },
+                "05": {
+                  "label": "May"
+                },
+                "06": {
+                  "label": "June"
+                },
+                "07": {
+                  "label": "July"
+                },
+                "08": {
+                  "label": "August"
+                },
+                "09": {
+                  "label": "September"
+                },
+                "10": {
+                  "label": "October"
+                },
+                "11": {
+                  "label": "November"
+                },
+                "12": {
+                  "label": "December"
+                }
+              }
+            },
+            "day": {
+              "label": "Day"
+            },
+            "hour": {
+              "label": "Hour",
+              "options": {
+                "00": {
+                  "label": "12 AM"
+                },
+                "01": {
+                  "label": "01 AM"
+                },
+                "02": {
+                  "label": "02 AM"
+                },
+                "03": {
+                  "label": "03 AM"
+                },
+                "04": {
+                  "label": "04 AM"
+                },
+                "05": {
+                  "label": "05 AM"
+                },
+                "06": {
+                  "label": "06 AM"
+                },
+                "07": {
+                  "label": "07 AM"
+                },
+                "08": {
+                  "label": "08 AM"
+                },
+                "09": {
+                  "label": "09 AM"
+                },
+                "10": {
+                  "label": "10 AM"
+                },
+                "11": {
+                  "label": "11 AM"
+                },
+                "12": {
+                  "label": "12 PM"
+                },
+                "13": {
+                  "label": "1 PM"
+                },
+                "14": {
+                  "label": "2 PM"
+                },
+                "15": {
+                  "label": "3 PM"
+                },
+                "16": {
+                  "label": "4 PM"
+                },
+                "17": {
+                  "label": "5 PM"
+                },
+                "18": {
+                  "label": "6 PM"
+                },
+                "19": {
+                  "label": "7 PM"
+                },
+                "20": {
+                  "label": "8 PM"
+                },
+                "21": {
+                  "label": "9 PM"
+                },
+                "22": {
+                  "label": "10 PM"
+                },
+                "23": {
+                  "label": "11 PM"
+                }
+              }
+            },
+            "minute": {
+              "label": "Minute"
+            },
+            "hide_timer": {
+              "label": "Hide timer on complete"
+            },
+            "text": {
+              "label": "Timer complete message"
+            }
+          }
+        },
+        "content": {
+          "name": "Content",
+          "settings": {
+            "heading": {
+              "label": "Heading"
+            },
+            "heading_size": {
+              "label": "Heading size",
+              "options": {
+                "small": {
+                  "label": "Small"
+                },
+                "medium": {
+                  "label": "Medium"
+                },
+                "large": {
+                  "label": "Large"
+                }
+              }
+            },
+            "text": {
+              "label": "Text"
+            },
+            "content_alignment": {
+              "label": "Content alignment",
+              "options": {
+                "left": {
+                  "label": "Left"
+                },
+                "center": {
+                  "label": "Center"
+                },
+                "right": {
+                  "label": "Right"
+                }
+              }
+            }
+          }
+        },
+        "button": {
+          "name": "Button",
+          "settings": {
+            "button_link": {
+              "label": "Button link"
+            },
+            "button": {
+              "label": "Button label"
+            },
+            "button_style": {
+              "label": "Button style",
+              "options": {
+                "secondary": {
+                  "label": "Outline"
+                },
+                "solid": {
+                  "label": "Solid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "countdown": {
+          "name": "Countdown"
         }
       }
     }
@@ -3337,6 +3919,9 @@
         "color_swatches": {
           "label": "Enable color swatches",
           "info": "Requires type to be set to 'Buttons'. [Learn how to set up swatches](https://archetypethemes.co/blogs/impulse/how-do-i-set-up-color-swatches)"
+        },
+        "product_dynamic_variants_enable": {
+          "label": "Enable dynamic product options"
         }
       }
     },

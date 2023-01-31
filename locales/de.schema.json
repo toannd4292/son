@@ -185,6 +185,17 @@
         "framed": {
           "label": "Rahmen hinzufügen"
         },
+        "parallax_direction": {
+          "label": "Richtung der Parallaxe",
+          "options": {
+            "top": {
+              "label": "Vertikal"
+            },
+            "left": {
+              "label": "Horizontal"
+            }
+          }
+        },
         "parallax": {
           "label": "Parallaxe aktivieren"
         }
@@ -354,6 +365,17 @@
         },
         "collection_image_enable": {
           "label": "Kategoriebild anzeigen"
+        },
+        "parallax_direction": {
+          "label": "Richtung der Parallaxe",
+          "options": {
+            "top": {
+              "label": "Vertikal"
+            },
+            "left": {
+              "label": "Horizontal"
+            }
+          }
         },
         "parallax": {
           "label": "Parallaxenbild"
@@ -1028,6 +1050,73 @@
         }
       }
     },
+    "image-comparison": {
+      "name": "Bildvergleich",
+      "settings": {
+        "heading": {
+          "label": "Bildvergleich"
+        },
+        "heading_size": {
+          "label": "Überschriftengröße",
+          "options": {
+            "large": {
+              "label": "Groß"
+            },
+            "medium": {
+              "label": "Mittel"
+            },
+            "small": {
+              "label": "Klein"
+            }
+          }
+        },
+        "heading_position": {
+          "label": "Kopfposition",
+          "options": {
+            "left": {
+              "label": "Links"
+            },
+            "center": {
+              "label": "Center"
+            },
+            "right": {
+              "label": "Recht"
+            }
+          }
+        },
+        "fullwidth": {
+          "label": "Volle Seitenbreite"
+        },
+        "slider_style": {
+          "label": "Slider-Stil",
+          "options": {
+            "classic": {
+              "label": "Klassisch"
+            },
+            "minimal": {
+              "label": "Minimal"
+            }
+          }
+        },
+        "height": {
+          "label": "Höhe"
+        },
+        "header_colors": "Farben",
+        "color": {
+          "label": "Taste"
+        }
+      },
+      "blocks": {
+        "image": {
+          "name": "Bild",
+          "settings": {
+            "image": {
+              "label": "Bild"
+            }
+          }
+        }
+      }
+    },
     "list-collections-template": {
       "name": "Listenseite für Kategorien",
       "settings": {
@@ -1080,6 +1169,122 @@
           "settings": {
             "collection": {
               "label": "Kategorie"
+            }
+          }
+        }
+      }
+    },
+    "hotspots": {
+      "name": "Bild-Hotspots",
+      "settings": {
+        "title": {
+          "label": "Überschrift"
+        },
+        "heading_size": {
+          "label": "Überschriftengröße",
+          "options": {
+            "large": {
+              "label": "Groß"
+            },
+            "medium": {
+              "label": "Mittel"
+            },
+            "small": {
+              "label": "Klein"
+            }
+          }
+        },
+        "heading_position": {
+          "label": "Kopfposition",
+          "options": {
+            "left": {
+              "label": "Links"
+            },
+            "center": {
+              "label": "Center"
+            },
+            "right": {
+              "label": "Recht"
+            }
+          }
+        },
+        "image": {
+          "label": "Bild",
+          "info": "Für ein optimales Nutzererlebnis auf mobilen Geräten wird ein quadratisches Seitenverhältnis empfohlen"
+        },
+        "indent_image": {
+          "label": "Volle seitenbreite"
+        },
+        "image_position": {
+          "label": "Bildposition",
+          "options": {
+            "left": {
+              "label": "Links"
+            },
+            "right": {
+              "label": "Rechts"
+            }
+          }
+        },
+        "hotspot_style": {
+          "label": "Hotspot-Symbolstil",
+          "options": {
+            "dot": {
+              "label": "Punkt"
+            },
+            "plus": {
+              "label": "Plus"
+            },
+            "bag": {
+              "label": "Tasche"
+            },
+            "tag": {
+              "label": "Schild"
+            }
+          }
+        },
+        "hotspot_color": {
+          "label": "Hotspot-Farbe"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Produkt-Hotspot",
+          "settings": {
+            "featured_product": {
+              "label": "Produkt"
+            },
+            "vertical": {
+              "label": "Vertikale Position"
+            },
+            "horizontal": {
+              "label": "Horizontale Position"
+            }
+          }
+        },
+        "paragraph": {
+          "name": "Absatz-Hotspot",
+          "settings": {
+            "subheading": {
+              "label": "Untertitel"
+            },
+            "heading": {
+              "label": "Überschrift"
+            },
+            "content": {
+              "label": "Text"
+            },
+            "button_text": {
+              "label": "Schaltflächentext"
+            },
+            "button_link": {
+              "label": "Button-Link"
+            },
+            "vertical": {
+              "label": "Vertikale Position"
+            },
+            "horizontal": {
+              "label": "Horizontale Position"
             }
           }
         }
@@ -1236,6 +1441,18 @@
             },
             "below": {
               "label": "Unterhalb der Medien"
+            }
+          }
+        },
+        "thumbnail_height": {
+          "label": "Höhe der Miniaturansicht",
+          "info": "Gilt nur, wenn die Position der Miniaturansicht auf „Neben den Medien“ eingestellt ist.",
+          "options": {
+            "fixed": {
+              "label": "Fest"
+            },
+            "flexible": {
+              "label": "Flexibel"
             }
           }
         },
@@ -2009,6 +2226,17 @@
             }
           }
         },
+        "parallax_direction": {
+          "label": "Richtung der Parallaxe",
+          "options": {
+            "top": {
+              "label": "Vertikal"
+            },
+            "left": {
+              "label": "Horizontal"
+            }
+          }
+        },
         "parallax": {
           "label": "Parallaxe aktivieren"
         },
@@ -2352,6 +2580,360 @@
       "presets": {
         "text_columns_with_images": {
           "name": "Textspalten mit Bildern"
+        }
+      }
+    },
+    "age-verification-popup": {
+      "name": "Altersüberprüfungs-Popup",
+      "settings": {
+        "enable_age_verification_popup": {
+          "label": "Altersüberprüfungs-Popup anzeigen"
+        },
+        "enable_test_mode": {
+          "label": "Testmodus aktivieren",
+          "info": "Erzwingt die Anzeige der Verifizierung bei jeder Aktualisierung und sollte nur zur Bearbeitung des Pop-ups verwendet werden. Vergewissern Sie sich, dass der 'Testmodus' bei der Öffnung Ihres Stores deaktiviert ist."
+        },
+        "header_background_image": "Hintergrundbild",
+        "image": {
+          "label": "Bild",
+          "info": "2000 x 800 Pixel empfohlen"
+        },
+        "blur_image": {
+          "label": "Verwischen Sie das Bild"
+        },
+        "header_age_verification_question": "Frage zur Altersüberprüfung",
+        "heading": {
+          "label": "Überschrift"
+        },
+        "text": {
+          "label": "Frage zur Altersüberprüfung"
+        },
+        "decline_button_label": {
+          "label": "Schaltflächentext ablehnen"
+        },
+        "approve_button_label": {
+          "label": "Schaltflächentext genehmigen"
+        },
+        "header_declined": "Declined",
+        "content": "Dieser Inhalt wird angezeigt, wenn der Nutzer die Anforderungen der Verifizierung nicht erfüllt.",
+        "decline_heading": {
+          "label": "Überschrift"
+        },
+        "decline_text": {
+          "label": "Text"
+        },
+        "return_button_label": {
+          "label": "Schaltflächentext zurückgeben"
+        }
+      }
+    },
+    "countdown": {
+      "name": "Countdown",
+      "settings": {
+        "layout": {
+          "label": "Abschnittslayout",
+          "options": {
+            "banner": {
+              "label": "Banner"
+            },
+            "hero": {
+              "label": "Hero"
+            }
+          }
+        },
+        "full_width": {
+          "label": "Volle Breite aktivieren"
+        },
+        "header_colors": "Farben",
+        "text_color": {
+          "label": "Textfarbe"
+        },
+        "background_color": {
+          "label": "Hintergrundfarbe",
+          "info": "Wird verwendet, wenn kein Hintergrundbild ausgewählt ist."
+        },
+        "header_background_image": "Hintergrundbild",
+        "background_image": {
+          "label": "Hintergrundbild"
+        },
+        "overlay_color": {
+          "label": "Überlagerung"
+        },
+        "overlay_opacity": {
+          "label": "Deckkraft überlagern"
+        },
+        "mobile_image": {
+          "label": "Mobile-Bild"
+        },
+        "focal_point": {
+          "label": "Brennpunkt des Bildes",
+          "options": {
+            "20_0": {
+              "label": "Oben links"
+            },
+            "top": {
+              "label": "Oben"
+            },
+            "80_0": {
+              "label": "Oben rechts"
+            },
+            "20_50": {
+              "label": "Links"
+            },
+            "center": {
+              "label": "Mitte"
+            },
+            "80_50": {
+              "label": "Rechts"
+            },
+            "20_100": {
+              "label": "Unten links"
+            },
+            "bottom": {
+              "label": "Unten"
+            },
+            "80_100": {
+              "label": "Unten rechts"
+            }
+          }
+        },
+        "mobile_image_focal_point": {
+          "label": "Mobiler Bildschwerpunkt",
+          "options": {
+            "20_0": {
+              "label": "Oben links"
+            },
+            "top": {
+              "label": "Oben"
+            },
+            "80_0": {
+              "label": "Oben rechts"
+            },
+            "20_50": {
+              "label": "Links"
+            },
+            "center": {
+              "label": "Mitte"
+            },
+            "80_50": {
+              "label": "Rechts"
+            },
+            "20_100": {
+              "label": "Unten links"
+            },
+            "bottom": {
+              "label": "Unten"
+            },
+            "80_100": {
+              "label": "Unten rechts"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "timer": {
+          "name": "Timer",
+          "settings": {
+            "year": {
+              "label": "Jahr"
+            },
+            "month": {
+              "label": "Monat",
+              "options": {
+                "01": {
+                  "label": "Januar"
+                },
+                "02": {
+                  "label": "Februar"
+                },
+                "03": {
+                  "label": "Marsch"
+                },
+                "04": {
+                  "label": "April"
+                },
+                "05": {
+                  "label": "Kann"
+                },
+                "06": {
+                  "label": "Juni"
+                },
+                "07": {
+                  "label": "Juli"
+                },
+                "08": {
+                  "label": "August"
+                },
+                "09": {
+                  "label": "September"
+                },
+                "10": {
+                  "label": "Oktober"
+                },
+                "11": {
+                  "label": "November"
+                },
+                "12": {
+                  "label": "Dezember"
+                }
+              }
+            },
+            "day": {
+              "label": "Tag"
+            },
+            "hour": {
+              "label": "Stunde",
+              "options": {
+                "00": {
+                  "label": "00:00"
+                },
+                "01": {
+                  "label": "01:00"
+                },
+                "02": {
+                  "label": "02:00"
+                },
+                "03": {
+                  "label": "03:00"
+                },
+                "04": {
+                  "label": "04:00"
+                },
+                "05": {
+                  "label": "05:00"
+                },
+                "06": {
+                  "label": "06:00"
+                },
+                "07": {
+                  "label": "07:00"
+                },
+                "08": {
+                  "label": "08:00"
+                },
+                "09": {
+                  "label": "09:00"
+                },
+                "10": {
+                  "label": "10:00"
+                },
+                "11": {
+                  "label": "11:00"
+                },
+                "12": {
+                  "label": "12:00"
+                },
+                "13": {
+                  "label": "13:00"
+                },
+                "14": {
+                  "label": "14:00"
+                },
+                "15": {
+                  "label": "15:00"
+                },
+                "16": {
+                  "label": "16:00"
+                },
+                "17": {
+                  "label": "17:00"
+                },
+                "18": {
+                  "label": "18:00"
+                },
+                "19": {
+                  "label": "19:00"
+                },
+                "20": {
+                  "label": "20:00"
+                },
+                "21": {
+                  "label": "21:00"
+                },
+                "22": {
+                  "label": "22:00"
+                },
+                "23": {
+                  "label": "23:00"
+                }
+              }
+            },
+            "minute": {
+              "label": "Minute"
+            },
+            "hide_timer": {
+              "label": "Timer nach Abschluss ausblenden"
+            },
+            "text": {
+              "label": "Timer abgeschlossen Meldung"
+            }
+          }
+        },
+        "content": {
+          "name": "Content",
+          "settings": {
+            "heading": {
+              "label": "Überschrift"
+            },
+            "heading_size": {
+              "label": "Überschriftengröße",
+              "options": {
+                "small": {
+                  "label": "Klein"
+                },
+                "medium": {
+                  "label": "Mittel"
+                },
+                "large": {
+                  "label": "Groß"
+                }
+              }
+            },
+            "text": {
+              "label": "Text"
+            },
+            "content_alignment": {
+              "label": "Inhaltliche Ausrichtung",
+              "options": {
+                "left": {
+                  "label": "Links"
+                },
+                "center": {
+                  "label": "Zentriert"
+                },
+                "right": {
+                  "label": "Rechts"
+                }
+              }
+            }
+          }
+        },
+        "button": {
+          "name": "Schaltfläche",
+          "settings": {
+            "button_link": {
+              "label": "Schaltflächenlink"
+            },
+            "button": {
+              "label": "Schaltflächenbeschriftung"
+            },
+            "button_style": {
+              "label": "Schaltflächendesign",
+              "options": {
+                "secondary": {
+                  "label": "Umriss"
+                },
+                "solid": {
+                  "label": "Fest"
+                }
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "countdown": {
+          "name": "Countdown"
         }
       }
     }
@@ -3334,6 +3916,9 @@
         "color_swatches": {
           "label": "Color-Swatches aktivieren",
           "info": "Erfordert, dass der Typ auf 'Schaltflächen' eingestellt ist. [Erfahren Sie, wie man Farbfelder einrichtet](https://archetypethemes.co/blogs/impulse/how-do-i-set-up-color-swatches)"
+        },
+        "product_dynamic_variants_enable": {
+          "label": "Aktivieren Sie dynamische Produktoptionen"
         }
       }
     },

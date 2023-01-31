@@ -185,6 +185,17 @@
         "framed": {
           "label": "Aggiungi cornice"
         },
+        "parallax_direction": {
+          "label": "Direzione di parallasse",
+          "options": {
+            "top": {
+              "label": "Verticale"
+            },
+            "left": {
+              "label": "Orizzontale"
+            }
+          }
+        },
         "parallax": {
           "label": "Attiva parallasse"
         }
@@ -354,6 +365,17 @@
         },
         "collection_image_enable": {
           "label": "Mostra immagine collezione"
+        },
+        "parallax_direction": {
+          "label": "Direzione di parallasse",
+          "options": {
+            "top": {
+              "label": "Verticale"
+            },
+            "left": {
+              "label": "Orizzontale"
+            }
+          }
         },
         "parallax": {
           "label": "Immagine parallasse"
@@ -1028,6 +1050,73 @@
         }
       }
     },
+    "image-comparison": {
+      "name": "Confronto di immagini",
+      "settings": {
+        "heading": {
+          "label": "Titolo"
+        },
+        "heading_size": {
+          "label": "Dimensione dell'intestazione",
+          "options": {
+            "large": {
+              "label": "Grande"
+            },
+            "medium": {
+              "label": "Medio"
+            },
+            "small": {
+              "label": "Piccolo"
+            }
+          }
+        },
+        "heading_position": {
+          "label": "Posizione dell'intestazione",
+          "options": {
+            "left": {
+              "label": "Sinistra"
+            },
+            "center": {
+              "label": "Centro"
+            },
+            "right": {
+              "label": "Destra"
+            }
+          }
+        },
+        "fullwidth": {
+          "label": "Larghezza pagina intera"
+        },
+        "slider_style": {
+          "label": "Stile cursore",
+          "options": {
+            "classic": {
+              "label": "Classica"
+            },
+            "minimal": {
+              "label": "Minima"
+            }
+          }
+        },
+        "height": {
+          "label": "Altezza"
+        },
+        "header_colors": "Colori",
+        "color": {
+          "label": "Pulsante"
+        }
+      },
+      "blocks": {
+        "image": {
+          "name": "Immagine",
+          "settings": {
+            "image": {
+              "label": "Immagine"
+            }
+          }
+        }
+      }
+    },
     "list-collections-template": {
       "name": "Pagina con l'elenco delle collezioni",
       "settings": {
@@ -1080,6 +1169,122 @@
           "settings": {
             "collection": {
               "label": "Collezione"
+            }
+          }
+        }
+      }
+    },
+    "hotspots": {
+      "name": "Punti caldi dell'immagine",
+      "settings": {
+        "title": {
+          "label": "Titolo"
+        },
+        "heading_size": {
+          "label": "Dimensione dell'intestazione",
+          "options": {
+            "large": {
+              "label": "Grande"
+            },
+            "medium": {
+              "label": "Medio"
+            },
+            "small": {
+              "label": "Piccolo"
+            }
+          }
+        },
+        "heading_position": {
+          "label": "Posizione dell'intestazione",
+          "options": {
+            "left": {
+              "label": "Sinistra"
+            },
+            "center": {
+              "label": "Centro"
+            },
+            "right": {
+              "label": "Destra"
+            }
+          }
+        },
+        "image": {
+          "label": "Immagine",
+          "info": "Consigliato un rapporto d'aspetto quadrato per un'esperienza mobile ottimale"
+        },
+        "indent_image": {
+          "label": "Larghezza della pagina intera"
+        },
+        "image_position": {
+          "label": "Posizione dell'immagine",
+          "options": {
+            "left": {
+              "label": "Sinistra"
+            },
+            "right": {
+              "label": "Destra"
+            }
+          }
+        },
+        "hotspot_style": {
+          "label": "Stile icona punto caldo",
+          "options": {
+            "dot": {
+              "label": "Punto"
+            },
+            "plus": {
+              "label": "Più"
+            },
+            "bag": {
+              "label": "Borsa"
+            },
+            "tag": {
+              "label": "Etichetta"
+            }
+          }
+        },
+        "hotspot_color": {
+          "label": "Colore icona punto caldo"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Punto di riferimento del prodotto",
+          "settings": {
+            "featured_product": {
+              "label": "Prodotto"
+            },
+            "vertical": {
+              "label": "Posizione verticale"
+            },
+            "horizontal": {
+              "label": "Posizione orizzontale"
+            }
+          }
+        },
+        "paragraph": {
+          "name": "Paragraph hotspot",
+          "settings": {
+            "subheading": {
+              "label": "Subheading"
+            },
+            "heading": {
+              "label": "Heading"
+            },
+            "content": {
+              "label": "Text"
+            },
+            "button_text": {
+              "label": "Button text"
+            },
+            "button_link": {
+              "label": "Button link"
+            },
+            "vertical": {
+              "label": "Vertical position"
+            },
+            "horizontal": {
+              "label": "Horizontal position"
             }
           }
         }
@@ -1236,6 +1441,18 @@
             },
             "below": {
               "label": "Sotto il contenuto"
+            }
+          }
+        },
+        "thumbnail_height": {
+          "label": "Altezza anteprima",
+          "info": "Si applica solo quando la posizione dell’Anteprima è impostata su “Accanto ai multimediali”.",
+          "options": {
+            "fixed": {
+              "label": "Fissa"
+            },
+            "flexible": {
+              "label": "Flessibile"
             }
           }
         },
@@ -2009,6 +2226,17 @@
             }
           }
         },
+        "parallax_direction": {
+          "label": "Direzione di parallasse",
+          "options": {
+            "top": {
+              "label": "Verticale"
+            },
+            "left": {
+              "label": "Orizzontale"
+            }
+          }
+        },
         "parallax": {
           "label": "Attiva parallasse"
         },
@@ -2352,6 +2580,360 @@
       "presets": {
         "text_columns_with_images": {
           "name": "Colonne di testo con immagini"
+        }
+      }
+    },
+    "age-verification-popup": {
+      "name": "Popup di verifica dell'età",
+      "settings": {
+        "enable_age_verification_popup": {
+          "label": "Mostra il popup di verifica dell'età"
+        },
+        "enable_test_mode": {
+          "label": "Abilita la modalità di prova",
+          "info": "Forza la verifica a ogni aggiornamento e dovrebbe essere utilizzata solo per modificare il pop-up. Assicurati che la 'Modalità test' sia disabilitata all'avvio del tuo negozio."
+        },
+        "header_background_image": "Immagine di sfondo",
+        "image": {
+          "label": "Immagine",
+          "info": "Consigliato 2000 x 800px"
+        },
+        "blur_image": {
+          "label": "Sfoca l'immagine"
+        },
+        "header_age_verification_question": "Domanda di verifica dell'età",
+        "heading": {
+          "label": "Titolo"
+        },
+        "text": {
+          "label": "Domanda di verifica dell'età"
+        },
+        "decline_button_label": {
+          "label": "Rifiuta il testo del pulsante"
+        },
+        "approve_button_label": {
+          "label": "Approva il testo del pulsante"
+        },
+        "header_declined": "Declined",
+        "content": "Questo contenuto verrà visualizzato se l'utente non soddisfa i requisiti di verifica.",
+        "decline_heading": {
+          "label": "Titolo"
+        },
+        "decline_text": {
+          "label": "Testo"
+        },
+        "return_button_label": {
+          "label": "Testo del pulsante di ritorno"
+        }
+      }
+    },
+    "countdown": {
+      "name": "Conto alla rovescia",
+      "settings": {
+        "layout": {
+          "label": "Disposizione della sezione",
+          "options": {
+            "banner": {
+              "label": "Banner"
+            },
+            "hero": {
+              "label": "Eroe"
+            }
+          }
+        },
+        "full_width": {
+          "label": "Abilita larghezza intera"
+        },
+        "header_colors": "Colori",
+        "text_color": {
+          "label": "Colore del testo"
+        },
+        "background_color": {
+          "label": "Colore di sfondo",
+          "info": "Utilizzato quando non è selezionata alcuna immagine di sfondo."
+        },
+        "header_background_image": "Immagine di sfondo",
+        "background_image": {
+          "label": "Immagine di sfondo"
+        },
+        "overlay_color": {
+          "label": "Sovrapposizione"
+        },
+        "overlay_opacity": {
+          "label": "Opacità di sovrapposizione"
+        },
+        "mobile_image": {
+          "label": "Immagine mobile"
+        },
+        "focal_point": {
+          "label": "Punto focale dell'immagine",
+          "options": {
+            "20_0": {
+              "label": "In alto a sinistra"
+            },
+            "top": {
+              "label": "In alto"
+            },
+            "80_0": {
+              "label": "In alto a destra"
+            },
+            "20_50": {
+              "label": "A sinistra"
+            },
+            "center": {
+              "label": "Al centro"
+            },
+            "80_50": {
+              "label": "A destra"
+            },
+            "20_100": {
+              "label": "In basso a sinistra"
+            },
+            "bottom": {
+              "label": "In basso"
+            },
+            "80_100": {
+              "label": "In basso a destra"
+            }
+          }
+        },
+        "mobile_image_focal_point": {
+          "label": "Punto focale dell'immagine mobile",
+          "options": {
+            "20_0": {
+              "label": "In alto a sinistra"
+            },
+            "top": {
+              "label": "In alto"
+            },
+            "80_0": {
+              "label": "In alto a destra"
+            },
+            "20_50": {
+              "label": "A sinistra"
+            },
+            "center": {
+              "label": "Al centro"
+            },
+            "80_50": {
+              "label": "A destra"
+            },
+            "20_100": {
+              "label": "In basso a sinistra"
+            },
+            "bottom": {
+              "label": "In basso"
+            },
+            "80_100": {
+              "label": "In basso a destra"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "timer": {
+          "name": "Timer",
+          "settings": {
+            "year": {
+              "label": "Anno"
+            },
+            "month": {
+              "label": "Mese",
+              "options": {
+                "01": {
+                  "label": "Gennaio"
+                },
+                "02": {
+                  "label": "Febbraio"
+                },
+                "03": {
+                  "label": "Marzo"
+                },
+                "04": {
+                  "label": "Aprile"
+                },
+                "05": {
+                  "label": "Maggio"
+                },
+                "06": {
+                  "label": "Giugno"
+                },
+                "07": {
+                  "label": "Luglio"
+                },
+                "08": {
+                  "label": "Agosto"
+                },
+                "09": {
+                  "label": "Settembre"
+                },
+                "10": {
+                  "label": "Ottobre"
+                },
+                "11": {
+                  "label": "Novembre"
+                },
+                "12": {
+                  "label": "Dicembre"
+                }
+              }
+            },
+            "day": {
+              "label": "Giorno"
+            },
+            "hour": {
+              "label": "Ora",
+              "options": {
+                "00": {
+                  "label": "00:00"
+                },
+                "01": {
+                  "label": "01:00"
+                },
+                "02": {
+                  "label": "02:00"
+                },
+                "03": {
+                  "label": "03:00"
+                },
+                "04": {
+                  "label": "04:00"
+                },
+                "05": {
+                  "label": "05:00"
+                },
+                "06": {
+                  "label": "06:00"
+                },
+                "07": {
+                  "label": "07:00"
+                },
+                "08": {
+                  "label": "08:00"
+                },
+                "09": {
+                  "label": "09:00"
+                },
+                "10": {
+                  "label": "10:00"
+                },
+                "11": {
+                  "label": "11:00"
+                },
+                "12": {
+                  "label": "12:00"
+                },
+                "13": {
+                  "label": "13:00"
+                },
+                "14": {
+                  "label": "14:00"
+                },
+                "15": {
+                  "label": "15:00"
+                },
+                "16": {
+                  "label": "16:00"
+                },
+                "17": {
+                  "label": "17:00"
+                },
+                "18": {
+                  "label": "18:00"
+                },
+                "19": {
+                  "label": "19:00"
+                },
+                "20": {
+                  "label": "20:00"
+                },
+                "21": {
+                  "label": "21:00"
+                },
+                "22": {
+                  "label": "22:00"
+                },
+                "23": {
+                  "label": "23:00"
+                }
+              }
+            },
+            "minute": {
+              "label": "Minuto"
+            },
+            "hide_timer": {
+              "label": "Nascondi il timer al termine"
+            },
+            "text": {
+              "label": "Messaggio del timer completo"
+            }
+          }
+        },
+        "content": {
+          "name": "Contenuto",
+          "settings": {
+            "heading": {
+              "label": "Titolo"
+            },
+            "heading_size": {
+              "label": "Dimensione del titolo",
+              "options": {
+                "small": {
+                  "label": "Piccola"
+                },
+                "medium": {
+                  "label": "Media"
+                },
+                "large": {
+                  "label": "Grande"
+                }
+              }
+            },
+            "text": {
+              "label": "Testo"
+            },
+            "content_alignment": {
+              "label": "Allineamento dei contenuti",
+              "options": {
+                "left": {
+                  "label": "A sinistra"
+                },
+                "center": {
+                  "label": "Centrato"
+                },
+                "right": {
+                  "label": "A destra"
+                }
+              }
+            }
+          }
+        },
+        "button": {
+          "name": "Pulsante",
+          "settings": {
+            "button_link": {
+              "label": "Link pulsante"
+            },
+            "button": {
+              "label": "Etichetta pulsante"
+            },
+            "button_style": {
+              "label": "Stile del pulsante",
+              "options": {
+                "secondary": {
+                  "label": "Contorno"
+                },
+                "solid": {
+                  "label": "Solido"
+                }
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "countdown": {
+          "name": "Countdown"
         }
       }
     }
@@ -3334,6 +3916,9 @@
         "color_swatches": {
           "label": "Abilita i campioni di colore",
           "info": "Il tipo deve essere impostato su \"Varianti\". [Maggiori informazioni sulla configurazione dei campioni di colore](https://archetypethemes.co/blogs/impulse/how-do-i-set-up-color-swatches)"
+        },
+        "product_dynamic_variants_enable": {
+          "label": "Abilita opzioni di prodotto dinamiche"
         }
       }
     },

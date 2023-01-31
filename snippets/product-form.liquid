@@ -29,16 +29,8 @@
       data-add-to-cart
       class="btn btn--full add-to-cart{% if enable_dynamic_buttons and product.selling_plan_groups == empty %} btn--secondary{% endif %}"
       {% unless current_variant.available %} disabled="disabled"{% endunless %}>
-      <span class="data-add-to-cart-text" data-add-to-cart-text data-default-text="{{ default_text }}">
-        {% if current_variant.inventory_policy == 'continue' and current_variant.inventory_quantity <= 0 %}
-        	Pre-Order {%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: current_variant.price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{current_variant.price | money | prepend: geolizr_prepend_code | append: "</span>"}}
-        {% else %}
-        	{% if button_text contains 'OUT OF STOCK' %}
-        		{{ button_text }}
-        	{% else %}
-        		{{ button_text }} - {%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: current_variant.price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{current_variant.price | money | prepend: geolizr_prepend_code | append: "</span>"}}
-        	{% endif %}
-        {% endif %}
+      <span data-add-to-cart-text data-default-text="{{ default_text }}">
+        {{ button_text }}
       </span>
     </button>
 
@@ -58,7 +50,7 @@
         <option {% if variant == product.selected_or_first_available_variant %}
           selected="selected"{% endif %}
           value="{{ variant.id }}">
-          {{ variant.title }} - {%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: variant.price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ variant.price | money_with_currency | prepend: geolizr_prepend_code | append: "</span>"}}
+          {{ variant.title }} - {{ variant.price | money_with_currency }}
         </option>
       {%- else -%}
         <option disabled="disabled">
@@ -67,45 +59,4 @@
       {%- endif -%}
     {%- endfor -%}
   </select>
-
-  <textarea data-variant-json class="hide" aria-hidden="true" aria-label="Product JSON">
-    {{ product.variants | json }}
-  </textarea>
-  {%- if product.options.size > 1 -%}
-    <textarea data-current-variant-json class="hide" aria-hidden="true" aria-label="Variant JSON">
-      {{ current_variant | json }}
-    </textarea>
-  {%- endif -%}
 {%- endform -%}
-
-<div class="backorder" style="">
-  <p>
-    <strong>
-    <span class="backorder__variant">
-      {% if current_variant.inventory_policy == 'continue' and current_variant.inventory_quantity <= 0 %}
-      	{{product.title}} - {{current_variant.title}}
-      {% endif %}
-    </span>
-    <span class="backorder__variant_day">
-      {% if current_variant.inventory_policy == 'continue' and current_variant.inventory_quantity <= 0 %}
-      is backordered and will ship in 2 - 3 weeks.
-      {% endif %}
-    </span>
-    </strong>
-  </p>
-  <p class="backorder__variant_note">
-  {% if current_variant.inventory_policy == 'continue' and current_variant.inventory_quantity <= 0 %}
-	In case you are out of time and your order is meant for a special occasion, you are more than welcome to reach out to us at info@sondeflor.com and we will find a way to ship your order as a priority.  
-  {% endif %}
-  </p>
-</div>
-{% unless current_variant.available %}  
-{% style %}  
-  .shopify-payment-button { display: none; }
-{% endstyle %}  
-{% endunless %}  
-{% if current_variant.inventory_policy == 'continue' and current_variant.inventory_quantity <= 0 %}
-{% style %}  
-  .shopify-payment-button { display: none; }
-{% endstyle %} 
-{% endif %}

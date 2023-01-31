@@ -1,130 +1,37 @@
-{% comment %}ly_liquid_scripts_begin{% endcomment %}{% capture ly_liquid_content %}{% comment %}ly_liquid_scripts_end{% endcomment %}<!doctype html>
-<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% comment %}ly_dir_replace_for_[{{ settings.text_direction }}]_begin{% endcomment %}{%- assign language_code = '_' | append: request.locale.iso_code -%}{%- if '_ar_ha_he_fa_ks_ku_ps_ur_yi' contains language_code -%}{%- assign dir = 'rtl' -%}{%- else -%}{%- capture dir -%}{{ settings.text_direction }}{%- endcapture -%}{%- endif -%}{{- dir -}}{% comment %}ly_dir_replace_end{% endcomment %}">
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ settings.text_direction }}">
 <head>
-{% render 'geolizr-init' %}
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NZQ937P');</script>
-<!-- End Google Tag Manager -->
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84875659-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-84875659-1');
-</script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "fk82sisrz2");
-</script>
-
-    <script defer id="sizebay-vfr-v4" data-src="https://static.sizebay.technology/1084/prescript.js"></script>
-  {% comment %}geolizr custom code start{% endcomment %}
-  <style>
-    a.geolizr-currency-switcher.geolizr-currency-link {
-      height: 21px;
-      background-color: transparent;
-    }
- 
-    .geolizr-desktop {
-        visibility: visible !important;
-    }
-  
-    .geolizr-selectable-currency,
-    span.geolizr-currency-switcher-value {
-      color: black;
-      font-size: 13px;
-      top: 0px;
-      position: relative;
-    }
-    ul.geolizr-currency-list.geolizr-currency-links.geolizr-currency-links-custom.geolizr-currency-links-down {
-        margin-left: -22px;
-    }
-    span.geolizr-currency-switcher-arrow-down {
-        top: 2px;
-    }
-   
-    .footer__section .geolizr-switcher-holder {
-      margin: 8px 10px 20px;
-    }
-
-    div.geolizr-currency-switch-wrapper.geolizr-desktop {
-        z-index: 100000!important;
-    }
-  
-    @media only screen and (max-width : 768px) {
-      .footer__section .geolizr-switcher-holder {
-        margin: 10px 20px;
-      }
-    }
-  
-    div#CartDrawer {
-        z-index: 1000000000;
-    }
-   
-    .pswp.pswp--supports-fs.pswp--open.pswp--notouch.pswp--css_animation.pswp--svg.pswp--zoom-allowed {
-      z-index: 10000000;
-    }
-  </style>
-  <script type="text/lazyload">
-    if(typeof Geolizr !== "undefined") {
-      Geolizr.init(function() {
-        function observeQuickViewButton() {
-          $('.quick-product__btn').click(function() {
-            setTimeout(function() { Geolizr.setCurrency(Geolizr.getCurrency()); }, 800);
-            setTimeout(function() { Geolizr.setCurrency(Geolizr.getCurrency()); }, 1000);
-            setTimeout(function() { Geolizr.setCurrency(Geolizr.getCurrency()); }, 1200);
-            setTimeout(function() { Geolizr.setCurrency(Geolizr.getCurrency()); }, 1400);
-          });
-        }
-        Geolizr.mutation("#CollectionAjaxContent", 100, 100, function() { observeQuickViewButton(); });
-        observeQuickViewButton();
-
-        Geolizr.mutation("#CartDrawerForm", 111, 100);
-        observeQuickViewButton();
-      });
-    }
-  </script>
-  {% comment %}geolizr custom code end{% endcomment %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_button }}">
   <link rel="canonical" href="{{ canonical_url }}">
-  <link rel="preconnect" href="https://cdn.shopify.com">
-  <link rel="preconnect" href="https://fonts.shopifycdn.com">
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
   <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
   <link rel="dns-prefetch" href="https://ajax.googleapis.com">
   <link rel="dns-prefetch" href="https://maps.googleapis.com">
   <link rel="dns-prefetch" href="https://maps.gstatic.com">
+
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
   {%- endif -%}
+
   {%- render 'seo-title' -%}
+
   {%- if page_description -%}
   <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
-  {% render 'prefetch' %}
+
   {%- render 'social-meta-tags' -%}
+
   {%- render 'font-face' -%}
-  {{ 'slick.min.css' | asset_url | stylesheet_tag: preload: true }}
-  {{ 'slick-theme.min.css' | asset_url | stylesheet_tag: preload: true }}
   {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
-  {{ 'custom.css' | asset_url | stylesheet_tag: preload: true }}
   {%- render 'css-variables' -%}
+
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
     window.theme = window.theme || {};
     theme.routes = {
       home: "{{ routes.root_url }}",
@@ -138,7 +45,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       soldOut: {{ 'products.product.sold_out' | t | json }},
       unavailable: {{ 'products.product.unavailable' | t | json }},
       inStockLabel: {{ 'products.product.in_stock_label' | t | json }},
-      stockLabel: {{ 'products.product.stock_label' | t: count: '[count]' | json }},
+      oneStockLabel: {{ 'products.product.stock_label.one' | t: count: '[count]' | json }},
+      otherStockLabel: {{ 'products.product.stock_label.other' | t: count: '[count]' | json }},
       willNotShipUntil: {{ 'products.product.will_not_ship_until' | t: date: '[date]' | json }},
       willBeInStockAfter: {{ 'products.product.will_be_in_stock_after' | t: date: '[date]' | json }},
       waitingForStock: {{ 'products.product.waiting_for_stock' | t | json }},
@@ -147,10 +55,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       cartTermsConfirmation: {{ 'cart.general.terms_confirm' | t | json }},
       searchCollections: {{ 'general.search.collections' | t | json }},
       searchPages: {{ 'general.search.pages' | t | json }},
-      searchArticles: {{ 'general.search.articles' | t | json }}
+      searchArticles: {{ 'general.search.articles' | t | json }},
+      productFrom: {{ 'products.general.from_text_html' | t: price: '' | json }},
     };
     theme.settings = {
-      dynamicVariantsEnable: true,
       cartType: {{ settings.cart_type | json }},
       isCustomerTemplate: {% if request.page_type contains 'customers/' %}true{% else %}false{% endif %},
       moneyFormat: {{ shop.money_format | json }},
@@ -159,60 +67,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       productImageCover: {{ settings.product_grid_image_fill }},
       predictiveSearch: {{ settings.predictive_search_enabled }},
       predictiveSearchType: {{ settings.search_type | json }},
+      predictiveSearchVendor: {{ settings.predictive_search_show_vendor | json }},
+      predictiveSearchPrice: {{ settings.predictive_search_show_price | json }},
       quickView: {{ settings.quick_shop_enable }},
       themeName: 'Impulse',
-      themeVersion: "6.0.1"
+      themeVersion: "7.1.0"
     };
   </script>
+
   {{ content_for_header }}
-  <script src="{{ 'vendor-scripts-v11.js' | asset_url }}" defer="defer"></script>
+
+  <script src="{{ 'vendor-scripts-v11.js' | asset_url | split: '?' | first }}" defer="defer"></script>
+
   {%- if shop.enabled_currencies.size > 1 -%}
     <link rel="stylesheet" href="{{ 'country-flags.css' | asset_url | split: '?' | first }}">
   {%- endif -%}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="{{ 'fastclick.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'slick.min.js' | asset_url }}" defer="defer"></script>
+
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+
   {%- if request.page_type contains 'customers/' -%}
     <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
   {%- endif -%}
-  {{ shop.metafields.loox["global_html_head"] }}
-  
-{% comment %}ly_dir_styles_begin{% endcomment %}{%- assign language_code = '_' | append: request.locale.iso_code -%}{%- if '_ar_ha_he_fa_ks_ku_ps_ur_yi' contains language_code -%}{{- 'ly-rtl.css' | asset_url | stylesheet_tag -}}{%- endif -%}{% comment %}ly_dir_styles_end{% endcomment %}</head>
+
+  {% if request.design_mode %}
+    <script src="https://api.archetypethemes.co/design-mode.js" defer="defer"></script>
+  {% endif %}
+</head>
+
 <body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}" data-center-text="{{ settings.type_body_align_text }}" data-button_style="{{ settings.button_style }}" data-type_header_capitalize="{{ settings.type_header_capitalize }}" data-type_headers_align_text="{{ settings.type_headers_align_text }}" data-type_product_capitalize="{{ settings.type_product_capitalize }}" data-swatch_style="{{ settings.swatch_style }}" {% if settings.disable_animations %}data-disable-animations="true"{% endif %}>
+
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
   <div id="PageContainer" class="page-container">
     <div class="transition-body">
+
     {%- section 'header' -%}
     {%- section 'newsletter-popup' -%}
+    {%- section 'age-verification-popup' -%}
+
       <main class="main-content" id="MainContent">
         {{ content_for_layout }}
-        <script type="text/lazyload">
-          (function(i,s,o,g,r,a,m){i['SplititObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window, document, 'script', '//upstream.production.splitit.com/v1/dist/upstream-messaging.js?v=1', 'splitit');
-          splitit('init', { apiKey:  '919139cd-89f9-4192-ba27-68bbf05b7dae', lang: 'en-US', currency: 'USD', currencySymbol: '$', debug: false });
-        </script>
       </main>
+
       {%- section 'footer-promotions' -%}
       {%- section 'footer' -%}
+
     </div>
   </div>
+
   {%- liquid
-  render 'video-modal'
-  render 'photoswipe-template'
-  render 'tool-tip'
+    render 'video-modal'
+    render 'photoswipe-template'
+    render 'tool-tip'
   -%}
-  {{ shop.metafields.loox["global_html_body"] | replace: 'src', 'data-src' }}
-  
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZQ937P"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
-  {% render 'content_for_footer' %}
-  {% render 'back-to-top' %}
-<!-- langify-v2-scripts-begin -->{% comment %}ly_liquid_scripts_begin{% endcomment %}{% endcapture %}{% render 'ly-liquid-scripts' content: ly_liquid_content %}{% comment %}ly_liquid_scripts_end{% endcomment %}{% comment %}ly_core_scripts_begin{% endcomment %}{% render 'ly-core-scripts' %}{% comment %}ly_core_scripts_end{% endcomment %}{% comment %}ly_switcher_factory_begin{% endcomment %}{% render 'ly-switcher-factory' %}{% comment %}ly_switcher_factory_end{% endcomment %}<!-- langify-v2-scripts-end -->{% render 'geolizr-currency-converter' %}</body>
+</body>
 </html>

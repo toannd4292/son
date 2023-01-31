@@ -80,12 +80,14 @@
       </p>
 
       <p>
-        <button type="submit" class="btn">
+        <label for="addresses-add-submit" class="hidden-label">{{ 'customer.addresses.add' | t }}</label>
+        <button type="submit" id="addresses-add-submit" class="btn">
           {{ 'customer.addresses.add' | t }}
         </button>
       </p>
       <p>
-        <button type="button" class="text-link address-new-toggle">{{ 'customer.addresses.cancel' | t }}</button>
+        <label for="addresses-cancel-submit" class="hidden-label">{{ 'customer.addresses.cancel' | t }}</label>
+        <button type="button" id="addresses-cancel-submit" class="text-link address-new-toggle">{{ 'customer.addresses.cancel' | t }}</button>
       </p>
 
     {%- endform -%}
@@ -165,12 +167,14 @@
         </p>
 
         <p>
-          <button type="submit" class="btn">
+          <label for="addresses-update-submit" class="hidden-label">{{ 'customer.addresses.update' | t }}</label>
+          <button type="submit" id="addresses-update-submit" class="btn">
             {{ 'customer.addresses.update' | t }}
           </button>
         </p>
         <p>
-          <button type="button" class="text-link address-edit-toggle" data-form-id="{{ form.id }}">{{ 'customer.addresses.cancel' | t }}</button>
+          <label for="address-edit-toggle" class="hidden-label">{{ 'customer.addresses.cancel' | t }}</label>
+          <button type="button" id="address-edit-toggle" class="text-link address-edit-toggle" data-form-id="{{ form.id }}">{{ 'customer.addresses.cancel' | t }}</button>
         </p>
       {%- endform -%}
     </div>

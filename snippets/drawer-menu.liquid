@@ -27,13 +27,13 @@
             {%- assign has_dropdown = true -%}
           {%- endif -%}
 
-          <li class="mobile-nav__item appear-animation appear-delay-{{ animation_row }} nav_text_{{ link.title | handle }}">
+          <li class="mobile-nav__item appear-animation appear-delay-{{ animation_row }}">
             {%- if has_dropdown -%}
               <div class="mobile-nav__has-sublist">
                 {%- if link.url == '#' -%}
                   <button type="button"
-                    aria-controls="Linklist-{{ child_list_handle }}"{% if link.active or link.child_active %} aria-open="false"{% endif %}
-                    class="mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-opens{% endif %}">
+                    aria-controls="Linklist-{{ child_list_handle }}"{% if link.active or link.child_active %} aria-open="true"{% endif %}
+                    class="mobile-nav__link--button mobile-nav__link--top-level collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}">
                     <span class="mobile-nav__faux-link"{% if link.active %} data-active="true"{% endif %}>
                       {{ link.title }}
                     </span>
@@ -45,28 +45,28 @@
                   </button>
                 {%- else -%}
                   <a href="{{ link.url }}"
-                    class="mobile-nav__link mobile-nav__link--top-level {% if link.child_active or link.active %} {% assign count = count | plus: 1 %} {% if count == 1 %} has--actives {% endif %} {% endif %} "
+                    class="mobile-nav__link mobile-nav__link--top-level"
                     id="Label-{{ child_list_handle }}"
                     {% if link.active %}data-active="true"{% endif %}>
                     {{ link.title }}
                   </a>
                   <div class="mobile-nav__toggle">
                     <button type="button"
-                      aria-controls="Linklist-{{ child_list_handle }}"{% if link.active or link.child_active %} aria-open="false"{% endif %}
+                      aria-controls="Linklist-{{ child_list_handle }}"{% if link.active or link.child_active %} aria-open="true"{% endif %}
                       aria-labelledby="Label-{{ child_list_handle }}"
-                      class="collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-opens{% endif %}">
+                      class="collapsible-trigger collapsible--auto-height{% if link.active or link.child_active %} is-open{% endif %}">
                       {%- render 'collapsible-icons' -%}
                     </button>
                   </div>
                 {%- endif -%}
               </div>
             {%- else -%}
-              <a href="{{ link.url }}" class="mobile-nav__link mobile-nav__link--top-level {% if link.active %} has--actives {% endif %}"{% if link.active %} data-active="true"{% endif %}>{{ link.title }}</a>
+              <a href="{{ link.url }}" class="mobile-nav__link mobile-nav__link--top-level"{% if link.active %} data-active="true"{% endif %}>{{ link.title }}</a>
             {%- endif -%}
 
             {%- if has_dropdown -%}
               <div id="Linklist-{{ child_list_handle }}"
-                class="mobile-nav__sublist collapsible-content collapsible-content--all{% if link.active or link.child_active %} is-opens{% endif %}"
+                class="mobile-nav__sublist collapsible-content collapsible-content--all{% if link.active or link.child_active %} is-open{% endif %}"
                 {% if link.active or link.child_active %}style="height: auto;"{% endif %}>
                 <div class="collapsible-content__inner">
                   <ul class="mobile-nav__sublist">
@@ -81,8 +81,8 @@
                         <div class="mobile-nav__child-item">
                           {%- if childlink.url == '#' and has_sub_dropdown -%}
                             <button type="button"
-                            aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"{% if childlink.active or childlink.child_active %} aria-open="false"{% endif %}
-                            class="mobile-nav__link--button collapsible-trigger{% if childlink.active or childlink.child_active %} is-opens{% endif %}">
+                            aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"{% if childlink.active or childlink.child_active %} aria-open="true"{% endif %}
+                            class="mobile-nav__link--button collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}">
                               <span class="mobile-nav__faux-link"{% if childlink.active %} data-active="true"{% endif %}>{{ childlink.title | escape }}</span>
                               {%- render 'collapsible-icons-alt' -%}
                             </button>
@@ -98,7 +98,7 @@
                             <button type="button"
                               aria-controls="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
                               aria-labelledby="Sublabel-{{ grand_child_list_handle }}"
-                              class="collapsible-trigger{% if childlink.active or childlink.child_active %} is-opens{% endif %}">
+                              class="collapsible-trigger{% if childlink.active or childlink.child_active %} is-open{% endif %}">
                               {%- render 'collapsible-icons-alt' -%}
                             </button>
                           {%- endif -%}
@@ -108,7 +108,7 @@
                           <div
                             id="Sublinklist-{{ child_list_handle }}-{{ grand_child_list_handle }}"
                             aria-labelledby="Sublabel-{{ grand_child_list_handle }}"
-                            class="mobile-nav__sublist collapsible-content collapsible-content--all{% if childlink.active or childlink.child_active %} is-opens{% endif %}"
+                            class="mobile-nav__sublist collapsible-content collapsible-content--all{% if childlink.active or childlink.child_active %} is-open{% endif %}"
                             {% if childlink.active or childlink.child_active %}style="height: auto;"{% endif %}>
                             <div class="collapsible-content__inner">
                               <ul class="mobile-nav__grandchildlist">

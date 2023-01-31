@@ -12,7 +12,6 @@
   {% unless disable_aria %}
     role="navigation" aria-label="Primary"
   {% endunless %}>
-  {% assign count = 0 %}
   {%- for link in main_menu.links limit: limit offset: offset -%}
     {%- liquid
       assign has_dropdown = false
@@ -26,10 +25,10 @@
     -%}
 
     <li
-      class=" site-nav__item site-nav__expanded-item nav_text_{{ link.title | handle }} {% if link.child_active or link.active %} {% assign count = count | plus: 1 %} {% if count == 1 %} has--active {% endif %} {% endif %} {% if has_dropdown %} site-nav--has-dropdown{% endif %}{% if is_megamenu %} site-nav--is-megamenu{% endif %}"
+      class="site-nav__item site-nav__expanded-item{% if has_dropdown %} site-nav--has-dropdown{% endif %}{% if is_megamenu %} site-nav--is-megamenu{% endif %}"
       {% if has_dropdown %}aria-haspopup="true"{% endif %}>
 
-      <a href="{{ link.url }}" class="{% for block in section.blocks %} {% case block.type %} {% when 'color' %} {% if block.settings.text == link.title and block.settings.sparkling_effect == true  %} sparkleh {% endif %} {% endcase %} {% endfor %}  site-nav__link site-nav__link--underline{% if has_dropdown %} site-nav__link--has-dropdown{% endif %}">
+      <a href="{{ link.url }}" class="site-nav__link site-nav__link--underline{% if has_dropdown %} site-nav__link--has-dropdown{% endif %}">
         {{ link.title }}
       </a>
       {%- if is_megamenu -%}
@@ -64,14 +63,14 @@
                     {%- if collections[childlink.object.handle].image != blank -%}
                       <a
                         href="{{ childlink.url }}"
-                        class="megamenu__colection-image nav_text_{{ childlink.title | handle }}"
+                        class="megamenu__colection-image"
                         aria-label="{{collections[childlink.object.handle].title}}"
                         style="background-image: url({{ collections[childlink.object.handle].image | img_url: '400x' }})"></a>
                     {%- endif -%}
                   {%- endif -%}
 
                   <div class="h5">
-                    <a href="{{ childlink.url }}" class="site-nav__dropdown-link site-nav__dropdown-link--top-level  nav_text_{{ childlink.title | handle }}">{{ childlink.title }}</a>
+                    <a href="{{ childlink.url }}" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">{{ childlink.title }}</a>
                   </div>
 
                   {%- liquid
@@ -84,7 +83,7 @@
 
                   {%- for grandchildlink in childlink.links -%}
                     <div>
-                      <a href="{{ grandchildlink.url }}" class="site-nav__dropdown-link  nav_text_{{ grandchildlink.title | handle }}">
+                      <a href="{{ grandchildlink.url }}" class="site-nav__dropdown-link">
                         {{grandchildlink.title}}
                       </a>
                     </div>

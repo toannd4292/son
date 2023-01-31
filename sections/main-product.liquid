@@ -16,6 +16,7 @@
   sku_enable: section.settings.sku_enable,
   isModal: isModal,
   thumbnail_position: section.settings.thumbnail_position,
+  thumbnail_height: section.settings.thumbnail_height,
   thumbnail_arrows: section.settings.thumbnail_arrows,
   mobile_layout: section.settings.mobile_layout,
   video_looping: section.settings.enable_video_looping,
@@ -94,6 +95,23 @@
         {
           "value": "below",
           "label": "t:sections.main-product.settings.thumbnail_position.options.below.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "thumbnail_height",
+      "label": "t:sections.main-product.settings.thumbnail_height.label",
+      "info": "t:sections.main-product.settings.thumbnail_height.info",
+      "default": "flexible",
+      "options": [
+        {
+          "value": "fixed",
+          "label": "t:sections.main-product.settings.thumbnail_height.options.fixed.label"
+        },
+        {
+          "value": "flexible",
+          "label": "t:sections.main-product.settings.thumbnail_height.options.flexible.label"
         }
       ]
     },
@@ -193,6 +211,12 @@
         }
       ],
       "default": "button"
+    },
+    {
+      "type": "checkbox",
+      "id": "product_dynamic_variants_enable",
+      "label": "t:product_block.variant_picker.settings.product_dynamic_variants_enable.label",
+      "default": true
     },
     {
       "type": "checkbox",
