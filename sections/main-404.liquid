@@ -1,0 +1,140 @@
+<section class="fof">
+  <center>
+    <h1 class="fof__heading type-heading-1 b404-title">{{section.settings.title}}</h1>
+    <div class="fof__message type-body-large rte measure-wide">
+      <div class="content-404">{{section.settings.content}}</div>
+      <div class="button-wrapper">
+          <a class="btn-404" href="{{section.settings.button-link1}}">{{section.settings.button-text1}}</a>
+        <a class=" btn-404" href="{{section.settings.button-link2}}">{{section.settings.button-text2}}</a>
+      </div>
+    </div>
+  </center>
+</section><script id="esc-redirects-404-script" src="https://redirects.eastsideco.io/js/app.js"></script>
+<style>
+a.btn-404{
+  background:{{section.settings.color_button}};
+  color:{{section.settings.color_text}}!important;
+  font-size:{{section.settings.size_heading}}px;
+  padding: 20px 15px;
+  text-decoration: none!important;
+  font-weight: bold;
+  margin: 20px 10px;
+}
+.button-wrapper {
+  display: flex;
+  justify-content: space-around;
+  max-width: 600px;
+  margin: 0px auto;
+}
+.content-404 p{
+	font-size:{{section.settings.size_description}}px;
+}
+.b404-title{
+	font-size:{{section.settings.size_title}}px !important;
+}
+h1.fof__heading.type-heading-1 {
+	margin-bottom: 50px;
+}
+main#MainContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+@media(max-width:679px){
+  .button-wrapper {
+  	flex-wrap: wrap;
+  }	
+  a.btn-404 {
+    width: 100%;
+    margin: 10px;
+  }
+}
+</style>
+{% schema %}
+{
+  "name": "404",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header"
+    },
+
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "range",
+      "id": "size_title",
+      "min": 2,
+      "max": 100,
+      "unit": "px",
+      "step": 1,
+      "label": "fontsize",
+      "default": 28
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Description"
+    },
+    {
+      "type": "range",
+      "id": "size_description",
+      "min": 2,
+      "max": 40,
+      "unit": "px",
+      "step": 1,
+      "label": "fontsize",
+      "default": 28
+    },
+    {
+      "type": "color",
+      "id": "color_button",
+      "label": "background color",
+      "default": "#333"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "text color",
+      "default": "#fff"
+    },
+    {
+      "type": "range",
+      "id": "size_heading",
+      "min": 2,
+      "max": 40,
+      "unit": "px",
+      "step": 1,
+      "label": "fontsize",
+      "default": 28
+    },
+    {
+      "type": "text",
+      "id": "button-text1",
+      "label": "Button",
+      "default": "RETURN TO HOMEPAGE"
+    },
+    {
+      "type": "url",
+      "id": "button-link1",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button-text2",
+      "label": "Button",
+      "default": "SEE ALL COLLECTIONS"
+    },
+    {
+      "type": "url",
+      "id": "button-link2",
+      "label": "Button link"
+    }
+    
+  ]
+}
+{% endschema %}<script id="esc-redirects-404-script" src="https://easyredirects.esc-apps-cdn.com/app.js"></script>

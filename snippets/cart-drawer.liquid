@@ -1,0 +1,154 @@
+{%- if settings.cart_type == 'drawer' -%}
+  <div id="CartDrawer" class="drawer drawer--right">
+    <form id="CartDrawerForm" action="{{ routes.cart_url }}" method="post" novalidate class="drawer__contents">
+      <div class="drawer__fixed-header">
+        <div class="drawer__header appear-animation appear-delay-1">
+          <div class="h2 drawer__title">{{ 'cart.general.title' | t }}</div>
+          <div class="drawer__close">
+            <button type="button" class="drawer__close-button js-drawer-close">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/></svg>
+              <span class="icon__fallback-text">{{ 'cart.general.close_cart' | t }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer__inner">
+        <div class="drawer__scrollable">
+          <div data-products class="appear-animation appear-delay-2"></div>
+          
+          {% capture before_you_go %} {% for item in cart.items %} {{ item.product.metafields.custom.before_you_go }} , {% endfor %} {% endcapture %}
+          {% assign byg_join = before_you_go | split: "," | uniq | join: ', ' %}
+          {% assign byg_split = byg_join | split: "," | compact %}
+          <div class="before-you-go-wrap">
+            <div class="txt-byg">Before You Go</div>
+            <div class="before-you-go-inner">
+              <div class="before-you-go-content">
+              {% capture iHandle %} {% for item in cart.items %} {{ item.product.handle }} {% endfor %} {% endcapture %}
+              {% capture lastHandle %}{% for byg in byg_split %} {% assign bystrp = byg | strip %} {% unless iHandle contains bystrp %}{{ byg | strip }}{% endunless %} {% endfor %}{% endcapture %}
+
+              {% assign lastHandleSplit = lastHandle | split: " " %}
+              {% for HandleSplit in lastHandleSplit %}
+                {%- assign product = all_products[HandleSplit] -%}
+                {% assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media %}
+                <div class="bygi-cls">
+                  <div class="bygi-cls-image">
+                    <img srcset="{{ featured_media | img_url:  '100x150' }}">
+                  </div>
+                  <div class="bygi-cls-title">
+                    <div class="cart__item-title">
+                      <a href="{{ product.url }}" class="cart__item-name">
+                        {{ product.title }}
+                      </a>
+                    </div>
+                    <div class="cart__item-foo">
+                      <div class="cart__item-price">
+                        {%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: product.price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ product.price | money | prepend: geolizr_prepend_code | append: "</span>"}}
+                      </div>
+                      <div class="cart__item-atc btn" data-id="{{ product.id }}" data-variant="{{ product.first_available_variant.id }}">
+                        Add
+                      </div>                 
+                    </div>
+                  </div>
+                </div>
+                
+              {% endfor %}
+              </div>
+            </div>
+
+          </div>
+          {% if settings.cart_notes_enable %}
+            <div class="appear-animation appear-delay-4">
+              <label for="CartNoteDrawer">{{ 'cart.general.note' | t }}</label>
+              <textarea name="note" class="input-full cart-notes" id="CartNoteDrawer">{{ cart.note }}</textarea>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="drawer__footer appear-animation appear-delay-4">
+          <div data-discounts>
+            {% if cart.cart_level_discount_applications != blank %}
+              <div class="cart__discounts cart__item-sub cart__item-row">
+                <div>{{ 'cart.general.discounts' | t }}</div>
+                <div class="text-right">
+                  {% for cart_discount in cart.cart_level_discount_applications %}
+                    <div class="cart__discount">
+                      {{ cart_discount.title }} (-{%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: cart_discount.total_allocated_amount -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ cart_discount.total_allocated_amount | money | prepend: geolizr_prepend_code | append: "</span>"}})
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="cart__item-sub cart__item-row">
+            <div class="ajaxcart__subtotal">{{ 'cart.general.subtotal' | t }}</div>
+            <div data-subtotal>{%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: cart.total_price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ cart.total_price | money | prepend: geolizr_prepend_code | append: "</span>"}}</div>
+          </div>
+          
+          <div id="splitit-container"
+   data-splitit="true"
+   data-splitit-amount="{{ cart.total_price | divided_by: 100.00 | json }}"
+   data-splitit-num-installments="3"
+   data-splitit-style-align="center"
+   data-splitit-style-font-family="Lora"
+   data-splitit-font-size="10"
+   data-splitit-logo-height="15"
+   data-splitit-type="product-description">
+</div>
+
+          <div class="cart__item-row text-center">
+            <small>
+              {{ 'cart.general.shipping_at_checkout' | t }}<br />
+            </small>
+          </div>
+
+          {% if settings.cart_terms_conditions_enable %}
+            <div class="cart__item-row cart__terms">
+              <input type="checkbox" id="CartTermsDrawer" class="cart__terms-checkbox">
+              <label for="CartTermsDrawer">
+                {% if settings.cart_terms_conditions_page != blank %}
+                  {{ 'cart.general.terms_html' | t: url: settings.cart_terms_conditions_page.url }}
+                {% else %}
+                  {{ 'cart.general.terms' | t }}
+                {% endif %}
+              </label>
+            </div>
+          {% endif %}
+
+          <div class="cart__checkout-wrapper">
+            <div class="cart__checkout-inner">
+              <a href="/cart" class="btn cart__view_cart">
+                View Cart
+              </a>              
+              <button type="submit" name="checkout" data-terms-required="{{ settings.cart_terms_conditions_enable }}" class="btn cart__checkout">
+                {{ 'cart.general.checkout' | t }}
+              </button>
+            </div>
+
+            {% if additional_checkout_buttons and settings.cart_additional_buttons %}
+              <div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
+            {% endif %}
+          </div>
+          {% if settings.cart_drawer_text != blank %}
+            <div class="cart_drawer_text">{{ settings.cart_drawer_text }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="drawer__cart-empty appear-animation appear-delay-2">
+        <div class="drawer__scrollable">
+          <p>{{ 'cart.general.empty' | t }}</p>
+          <p>{{ settings.cart_drawer_empty_text }}</p>
+          <div class="wts-sbs">
+            <a href="{{ settings.cart_drawer_empty_url }}">
+              <div class="quick-product__btn" style=" position: unset; opacity: 1; width: fit-content; padding: 8px 20px 12px;    display: block !important; ">
+                <span class="quick-product__label">{{ settings.cart_drawer_empty_btn_text }}</span>
+              </div>            
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+{%- endif -%}
