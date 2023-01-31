@@ -43,7 +43,8 @@
         <label for="ContactFormMessage-{{ section.id }}">{{ 'contact.form.message' | t }}</label>
         <textarea rows="5" id="ContactFormMessage-{{ section.id }}" class="input-full" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
 
-        <button type="submit" class="btn">
+        <label for="contact-form-submit-{{ section.id }}" class="hidden-label">{{ 'contact.form.send' | t }}</label>
+        <button type="submit" id="contact-form-submit-{{ section.id }}" class="btn">
           {{ 'contact.form.send' | t }}
         </button>
 

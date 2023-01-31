@@ -11,7 +11,7 @@
   endif
 
   assign show_incoming = false
-  if current_variant.incoming and inventory_visible == false and current_variant.inventory_quantity <= block.settings.inventory_threshold
+  if current_variant.incoming and inventory_visible == true and current_variant.inventory_quantity <= block.settings.inventory_threshold
     assign show_incoming = true
   endif
 -%}

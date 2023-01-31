@@ -185,6 +185,17 @@
         "framed": {
           "label": "Ajouter un cadre"
         },
+        "parallax_direction": {
+          "label": "Direction de la parallaxe",
+          "options": {
+            "top": {
+              "label": "Verticale"
+            },
+            "left": {
+              "label": "Horizontale"
+            }
+          }
+        },
         "parallax": {
           "label": "Activer la parallaxe"
         }
@@ -354,6 +365,17 @@
         },
         "collection_image_enable": {
           "label": "Afficher l'image de la collection"
+        },
+        "parallax_direction": {
+          "label": "Direction de la parallaxe",
+          "options": {
+            "top": {
+              "label": "Verticale"
+            },
+            "left": {
+              "label": "Horizontale"
+            }
+          }
         },
         "parallax": {
           "label": "Image parallaxe"
@@ -1028,6 +1050,73 @@
         }
       }
     },
+    "image-comparison": {
+      "name": "Comparaison d'images",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        },
+        "heading_size": {
+          "label": "Taille du titre",
+          "options": {
+            "large": {
+              "label": "Grande"
+            },
+            "medium": {
+              "label": "Moyen"
+            },
+            "small": {
+              "label": "Petite"
+            }
+          }
+        },
+        "heading_position": {
+          "label": "Position du titre",
+          "options": {
+            "left": {
+              "label": "Gauche"
+            },
+            "center": {
+              "label": "Centre"
+            },
+            "right": {
+              "label": "Droite"
+            }
+          }
+        },
+        "fullwidth": {
+          "label": "Largeur de la page entière"
+        },
+        "slider_style": {
+          "label": "Style de curseur",
+          "options": {
+            "classic": {
+              "label": "Classique"
+            },
+            "minimal": {
+              "label": "Minimale"
+            }
+          }
+        },
+        "height": {
+          "label": "Hauteur"
+        },
+        "header_colors": "Coleurs",
+        "color": {
+          "label": "Bouton"
+        }
+      },
+      "blocks": {
+        "image": {
+          "name": "Image",
+          "settings": {
+            "image": {
+              "label": "Image"
+            }
+          }
+        }
+      }
+    },
     "list-collections-template": {
       "name": "Page de liste des collections",
       "settings": {
@@ -1080,6 +1169,122 @@
           "settings": {
             "collection": {
               "label": "Collection"
+            }
+          }
+        }
+      }
+    },
+    "hotspots": {
+      "name": "Points chauds des images",
+      "settings": {
+        "title": {
+          "label": "Titre"
+        },
+        "heading_size": {
+          "label": "Taille du titre",
+          "options": {
+            "large": {
+              "label": "Grande"
+            },
+            "medium": {
+              "label": "Moyen"
+            },
+            "small": {
+              "label": "Petite"
+            }
+          }
+        },
+        "heading_position": {
+          "label": "Position du titre",
+          "options": {
+            "left": {
+              "label": "Gauche"
+            },
+            "center": {
+              "label": "Centre"
+            },
+            "right": {
+              "label": "Droite"
+            }
+          }
+        },
+        "image": {
+          "label": "Image",
+          "info": "A recommandé un format carré pour une expérience mobile optimale"
+        },
+        "indent_image": {
+          "label": "Pleine largeur de page"
+        },
+        "image_position": {
+          "label": "Position de l'image",
+          "options": {
+            "left": {
+              "label": "Gauche"
+            },
+            "right": {
+              "label": "Droite"
+            }
+          }
+        },
+        "hotspot_style": {
+          "label": "Style des points chauds",
+          "options": {
+            "dot": {
+              "label": "Point"
+            },
+            "plus": {
+              "label": "Plus"
+            },
+            "bag": {
+              "label": "Sac"
+            },
+            "tag": {
+              "label": "Étiquette"
+            }
+          }
+        },
+        "hotspot_color": {
+          "label": "Couleur des points chauds"
+        }
+      },
+      "blocks": {
+        "product": {
+          "name": "Points chauds des produits",
+          "settings": {
+            "featured_product": {
+              "label": "Produit"
+            },
+            "vertical": {
+              "label": "Position verticale"
+            },
+            "horizontal": {
+              "label": "Position horizontale"
+            }
+          }
+        },
+        "paragraph": {
+          "name": "Points chauds du paragraphe",
+          "settings": {
+            "subheading": {
+              "label": "Sous-titre"
+            },
+            "heading": {
+              "label": "Titre"
+            },
+            "content": {
+              "label": "Contenu"
+            },
+            "button_text": {
+              "label": "Texte du bouton"
+            },
+            "button_link": {
+              "label": "Lien du bouton"
+            },
+            "vertical": {
+              "label": "Position verticale"
+            },
+            "horizontal": {
+              "label": "Position horizontale"
             }
           }
         }
@@ -1236,6 +1441,18 @@
             },
             "below": {
               "label": "En dessous du média"
+            }
+          }
+        },
+        "thumbnail_height": {
+          "label": "Hauteur de la vignette",
+          "info": "S'applique uniquement lorsque la position de la vignette est définie sur « À côté des médias ».",
+          "options": {
+            "fixed": {
+              "label": "Fixe"
+            },
+            "flexible": {
+              "label": "Flexible"
             }
           }
         },
@@ -2003,6 +2220,17 @@
             }
           }
         },
+        "parallax_direction": {
+          "label": "Direction de la parallaxe",
+          "options": {
+            "top": {
+              "label": "Verticale"
+            },
+            "left": {
+              "label": "Horizontale"
+            }
+          }
+        },
         "parallax": {
           "label": "Activer la parallaxe"
         },
@@ -2346,6 +2574,360 @@
       "presets": {
         "text_columns_with_images": {
           "name": "Colonnes de texte avec images"
+        }
+      }
+    },
+    "age-verification-popup": {
+      "name": "Fenêtre contextuelle de vérification de l'âge",
+      "settings": {
+        "enable_age_verification_popup": {
+          "label": "Afficher la fenêtre contextuelle de vérification de l'âge"
+        },
+        "enable_test_mode": {
+          "label": "Activer le mode test",
+          "info": "Force la vérification à s'afficher à chaque actualisation et ne doit être utilisée que pour modifier la fenêtre contextuelle. Assurez-vous que le « mode test » est désactivé lors du lancement de votre boutique."
+        },
+        "header_background_image": "Image de fond",
+        "image": {
+          "label": "Image",
+          "info": "2000 x 800px recommandé"
+        },
+        "blur_image": {
+          "label": "Brouiller l'image"
+        },
+        "header_age_verification_question": "Question de vérification de l'âge",
+        "heading": {
+          "label": "Titre"
+        },
+        "text": {
+          "label": "Question de vérification de l'âge"
+        },
+        "decline_button_label": {
+          "label": "Refuser le texte du bouton"
+        },
+        "approve_button_label": {
+          "label": "Approuver le texte du bouton"
+        },
+        "header_declined": "Declined",
+        "content": "Ce contenu s'affichera si l'utilisateur ne répond pas aux exigences de la vérification.",
+        "decline_heading": {
+          "label": "Titre"
+        },
+        "decline_text": {
+          "label": "Texte"
+        },
+        "return_button_label": {
+          "label": "Texte du bouton de retour"
+        }
+      }
+    },
+    "countdown": {
+      "name": "Compte à rebours",
+      "settings": {
+        "layout": {
+          "label": "Mise en page de la section",
+          "options": {
+            "banner": {
+              "label": "Bannière"
+            },
+            "hero": {
+              "label": "Hero"
+            }
+          }
+        },
+        "full_width": {
+          "label": "Activer la pleine largeur"
+        },
+        "header_colors": "Couleurs",
+        "text_color": {
+          "label": "Couleur du texte"
+        },
+        "background_color": {
+          "label": "Couleur de fond",
+          "info": "Utilisé lorsqu'aucune image d'arrière-plan n'est sélectionnée."
+        },
+        "header_background_image": "Image de fond",
+        "background_image": {
+          "label": "Image de fond"
+        },
+        "overlay_color": {
+          "label": "Recouvrir"
+        },
+        "overlay_opacity": {
+          "label": "Opacité de superposition"
+        },
+        "mobile_image": {
+          "label": "Image mobile"
+        },
+        "focal_point": {
+          "label": "Point focal de l'image",
+          "options": {
+            "20_0": {
+              "label": "En haut à gauche"
+            },
+            "top": {
+              "label": "Haut"
+            },
+            "80_0": {
+              "label": "En haut à droite"
+            },
+            "20_50": {
+              "label": "Gauche"
+            },
+            "center": {
+              "label": "Milieu"
+            },
+            "80_50": {
+              "label": "Droite"
+            },
+            "20_100": {
+              "label": "En bas à gauche"
+            },
+            "bottom": {
+              "label": "Bas"
+            },
+            "80_100": {
+              "label": "En bas à droite"
+            }
+          }
+        },
+        "mobile_image_focal_point": {
+          "label": "Point focal de l'image mobile",
+          "options": {
+            "20_0": {
+              "label": "En haut à gauche"
+            },
+            "top": {
+              "label": "Haut"
+            },
+            "80_0": {
+              "label": "En haut à droite"
+            },
+            "20_50": {
+              "label": "Gauche"
+            },
+            "center": {
+              "label": "Milieu"
+            },
+            "80_50": {
+              "label": "Droite"
+            },
+            "20_100": {
+              "label": "En bas à gauche"
+            },
+            "bottom": {
+              "label": "Bas"
+            },
+            "80_100": {
+              "label": "En bas à droite"
+            }
+          }
+        }
+      },
+      "blocks": {
+        "timer": {
+          "name": "Minuteur",
+          "settings": {
+            "year": {
+              "label": "An"
+            },
+            "month": {
+              "label": "Mois",
+              "options": {
+                "01": {
+                  "label": "Janvier"
+                },
+                "02": {
+                  "label": "Février"
+                },
+                "03": {
+                  "label": "Mars"
+                },
+                "04": {
+                  "label": "Avril"
+                },
+                "05": {
+                  "label": "Mai"
+                },
+                "06": {
+                  "label": "Juin"
+                },
+                "07": {
+                  "label": "Juillet"
+                },
+                "08": {
+                  "label": "Août"
+                },
+                "09": {
+                  "label": "Septembre"
+                },
+                "10": {
+                  "label": "Octobre"
+                },
+                "11": {
+                  "label": "Novembre"
+                },
+                "12": {
+                  "label": "Décembre"
+                }
+              }
+            },
+            "day": {
+              "label": "Jour"
+            },
+            "hour": {
+              "label": "Heure",
+              "options": {
+                "00": {
+                  "label": "00:00"
+                },
+                "01": {
+                  "label": "01:00"
+                },
+                "02": {
+                  "label": "02:00"
+                },
+                "03": {
+                  "label": "03:00"
+                },
+                "04": {
+                  "label": "04:00"
+                },
+                "05": {
+                  "label": "05:00"
+                },
+                "06": {
+                  "label": "06:00"
+                },
+                "07": {
+                  "label": "07:00"
+                },
+                "08": {
+                  "label": "08:00"
+                },
+                "09": {
+                  "label": "09:00"
+                },
+                "10": {
+                  "label": "10:00"
+                },
+                "11": {
+                  "label": "11:00"
+                },
+                "12": {
+                  "label": "12:00"
+                },
+                "13": {
+                  "label": "13:00"
+                },
+                "14": {
+                  "label": "14:00"
+                },
+                "15": {
+                  "label": "15:00"
+                },
+                "16": {
+                  "label": "16:00"
+                },
+                "17": {
+                  "label": "17:00"
+                },
+                "18": {
+                  "label": "18:00"
+                },
+                "19": {
+                  "label": "19:00"
+                },
+                "20": {
+                  "label": "20:00"
+                },
+                "21": {
+                  "label": "21:00"
+                },
+                "22": {
+                  "label": "22:00"
+                },
+                "23": {
+                  "label": "23:00"
+                }
+              }
+            },
+            "minute": {
+              "label": "Minute"
+            },
+            "hide_timer": {
+              "label": "Masquer la minuterie à la fin"
+            },
+            "text": {
+              "label": "Message de fin de minuterie"
+            }
+          }
+        },
+        "content": {
+          "name": "Contenu",
+          "settings": {
+            "heading": {
+              "label": "Titre"
+            },
+            "heading_size": {
+              "label": "Taille du titre",
+              "options": {
+                "small": {
+                  "label": "Petit"
+                },
+                "medium": {
+                  "label": "Moyen"
+                },
+                "large": {
+                  "label": "Grand"
+                }
+              }
+            },
+            "text": {
+              "label": "Texte"
+            },
+            "content_alignment": {
+              "label": "Alignement du contenu",
+              "options": {
+                "left": {
+                  "label": "Gauche"
+                },
+                "center": {
+                  "label": "Centré"
+                },
+                "right": {
+                  "label": "Droite"
+                }
+              }
+            }
+          }
+        },
+        "button": {
+          "name": "Bouton",
+          "settings": {
+            "button_link": {
+              "label": "Lien du bouton"
+            },
+            "button": {
+              "label": "Texte du bouton"
+            },
+            "button_style": {
+              "label": "Style du bouton",
+              "options": {
+                "secondary": {
+                  "label": "Contour"
+                },
+                "solid": {
+                  "label": "Solide"
+                }
+              }
+            }
+          }
+        }
+      },
+      "presets": {
+        "countdown": {
+          "name": "Compte à rebours"
         }
       }
     }
@@ -3328,6 +3910,9 @@
         "color_swatches": {
           "label": "Activer les échantillons de couleur",
           "info": "Le type doit être défini sur « Boutons ». [Apprenez à mettre en place des échantillons](https://archetypethemes.co/blogs/impulse/how-do-i-set-up-color-swatches)"
+        },
+        "product_dynamic_variants_enable": {
+          "label": "Activer les options de produit dynamiques"
         }
       }
     },

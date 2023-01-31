@@ -21,10 +21,10 @@
       <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
 
       <p>
-        <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn--full">
+        <label for="register-submit" class="hidden-label">{{ 'customer.register.submit' | t }}</label>
+        <input type="submit" id="register-submit" value="{{ 'customer.register.submit' | t }}" class="btn btn--full">
       </p>
 
     {%- endform -%}
   </div>
-  <center><p><a href="/account/login" id="customer_login_link">Log In</a></p></center>
 </div>

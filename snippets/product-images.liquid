@@ -11,7 +11,12 @@
     <div class="product__photos product__photos-{{ section_id }} product__photos--{{ thumbnail_position }}">
 
       <div class="product__main-photos" data-aos data-product-single-media-group>
-        <div data-product-photos class="product-slideshow" id="ProductPhotos-{{ section_id }}">
+        <div
+          data-product-photos
+          data-zoom="{{ product_zoom_enable }}"
+          class="product-slideshow"
+          id="ProductPhotos-{{ section_id }}"
+        >
           {%- for media in product.media -%}
             {%- render 'media',
               section_id: section_id,
@@ -124,6 +129,22 @@
       </div>
     </div>
   </div>
+
+  {% if thumbnail_height == 'fixed' %}
+    {% style %}
+      .product__photos-{{ section_id }} .product__thumbs:not(.product__thumbs--below) {
+        min-height: 400px;
+        max-height: 400px;
+      }
+
+      @media screen and (max-width: 798px) {
+        .product__photos-{{ section_id }} .product__thumbs:not(.product__thumbs--below) {
+          min-height: 300px;
+          max-height: 300px;
+        }
+      }
+    {% endstyle %}
+  {% endif %}
 
   <script type="application/json" id="ModelJson-{{ section_id }}">
     {{ product.media | where: 'media_type', 'model' | json }}

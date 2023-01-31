@@ -457,7 +457,7 @@
                                 {%- endif -%}
                                 {%- if block.settings.enable_price -%}
                                   <div class="type-product__label type-product__label--secondary">
-                                    {%comment%}gc--[{%endcomment%}{%- capture geolizr_prepend_code -%}{%- render 'geolizr-currency', geolizr_price: product.price -%}{% endcapture %}{%comment%}]--gc{%endcomment%}{{ product.price | money | prepend: geolizr_prepend_code | append: "</span>"}}
+                                    {{ product.price | money }}
                                   </div>
                                 {%- endif -%}
                               </div>

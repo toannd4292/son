@@ -1,4 +1,4 @@
-{% unless section.settings.disable_for_account_holders and customer %}
+{% unless section.settings.mode == blank or section.settings.disable_for_account_holders and customer %}
 
 {% for block in section.blocks %}
   {% if block.type == 'header' %}

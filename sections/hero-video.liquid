@@ -130,7 +130,11 @@
               <div class="hero__link">
                 <div class="animation-cropper">
                   <div class="animation-contents">
-                    <a href="{{ link_href }}" class="btn{% if section.settings.color_accent and section.settings.color_accent == 'rgba(0,0,0,0)' %} btn--inverse{% endif %}">
+                    <a href="{{ link_href }}" class="btn{% if section.settings.color_accent and section.settings.color_accent == 'rgba(0,0,0,0)' %} btn--inverse{% endif %}"
+                      {%- if section.settings.video_url contains 'vimeo.com' -%}
+                        data-video-id="{{ video_id }}"
+                      {%- endif -%}
+                    >
                       {%- if link_href contains 'youtube.com/watch' or link_href contains 'youtu.be/' -%}
                         <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-play" viewBox="18.24 17.35 24.52 28.3"><path fill="#323232" d="M22.1 19.151v25.5l20.4-13.489-20.4-12.011z"/></svg>
                       {%- endif -%}
